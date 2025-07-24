@@ -1,7 +1,7 @@
 
 function BotNavBar () {
     return (
-        <div className='w-screen h-50 bg-white'>
+        <div className='w-screen h-50 bg-black align-bottom m-auto'>
             <p>LinkedIn logo is a trademark of LinkedIn</p>
             <p>GitHub logo is a trademark of GitHub.com</p>
             <p>HTML logo form flaticon.com</p>

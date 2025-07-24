@@ -2,18 +2,47 @@
 
 #root {
   max-width: 100%;
-  margin: auto;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  will-change: filter;
-  transition: filter 300ms;
+@theme {
+  --color-midnight: #181818;
+  --font-dot_matrix: dot_matrix;
+  --font-pixel_operator: pixel_operator;
+
+  --animate-scrolling: loop 90s linear infinite;
+  --animate-pulsing: pulsing 1s linear infinite;
+  
+  @keyframes loop {
+    0% {transform: translateX(0%);}
+    100% {transform: translateX(-100%);}
+  }
+
+  @keyframes pulsing {
+    0% {
+      scale: 100% 100%;
+      opacity: 0%; 
+    }
+    50% {
+      opacity: 20%
+    }
+    100% {
+      scale: 110% 110%; 
+      opacity: 0%
+    }
+  }
+
+--animate-border-rotate: borderRotate 3s linear infinite;
+
+  @keyframes borderRotate {
+    0% { transform: rotate(0deg); }
+    40% { transform: rotate(140deg); }
+    50% { transform: rotate(180deg); }
+    60% { transform: rotate(220deg); }
+    100% { transform: rotate(360deg); }
+  }
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
+

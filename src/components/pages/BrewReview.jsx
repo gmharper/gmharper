@@ -6,12 +6,12 @@ import PersonCard from "../BrewReview/PersonCard"
 
 const group_members = [
     {
-        name: 'Morgan Hewitt',
+        name: 'MORGAN HEWITT',
         linkedIn: 'https://www.linkedin.com/in/morgan-hewitt-8a68041ab/',
         github: 'https://github.com/loafdimension'
     },
     {
-        name: 'Sam Joy',
+        name: 'SAM JOY',
         linkedIn: 'https://www.linkedin.com/in/sam-joy1/',
         github: 'https://github.com/samjoy1',
     },

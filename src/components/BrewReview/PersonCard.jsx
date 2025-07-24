@@ -6,7 +6,7 @@ import linkedIn_logo from '../../assets/icons/LI-In-Bug.png'
 
 function PersonCard ({ person }) {
     return (
-        <div className='flex flex-row bg-white p-1 rounded-xl mb-2 h-16 w-120'>
+        <div className='flex flex-row bg-stone-100 p-1 rounded-sm mb-2 h-16 w-120'>
             <h2 className='text-left font-bold text-black'>{person.name}</h2>
 
             <div className='flex-1' />

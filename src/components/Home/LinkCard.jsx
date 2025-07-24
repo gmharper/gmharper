@@ -35,10 +35,10 @@ function LinkCard (
     }, [handle_mouse_enter])
 
     return (
-        <div className='flex flex-col h-120 w-full rounded-xl bg-white/0 mx-4 mb-32 shadow-lg'>
-            <Link to={obj.link} className='h-full w-full'>
+        <div className='flex flex-col h-120 xl:h-150 w-full rounded-xl bg-white/0 mx-4 mb-8 shadow-lg'>
+            <Link to={obj.link} className='h-60 w-full xl:h-80'>
                 <div id='link_card'
-                    className='bg-zinc-900 rounded-t-xl overflow-clip hover:scale-105 hover:outline-3 hover:outline-white hover:rounded-xl'
+                    className='bg-zinc-900 rounded-t-xl overflow-clip hover:scale-125 hover:outline-1 hover:outline-black hover:rounded-xl'
                     onMouseEnter={handle_mouse_enter}
                     onMouseLeave={handle_mouse_leave}
                 >
@@ -64,9 +64,9 @@ function LinkCard (
                 </div>
             </Link>
 
-            <div className='flex bg-linear-to-r from-indigo-500 to-violet-500 w-full h-full p-2 rounded-b-xl border-t-1 shadow-lg'>
+            <div className='flex bg-linear-to-r from-indigo-500 to-violet-500 w-full h-full p-2 rounded-b-xl border-t-1 border-black shadow-lg'>
                 <div className='flex-1 mr-4 h-full'>
-                   <div className='content-center bg-zinc-900/90 rounded-xl w-45 p-2 mb-4 outline-1 outline-white'>
+                   <div className='content-center bg-zinc-900/90 rounded-xl w-45 p-2 mb-4 outline-1 outline-black'>
                         <p className='font-bold text-lg'>{obj.name}</p>
                     </div>
 

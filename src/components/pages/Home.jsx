@@ -1,124 +1,215 @@
+"use-client"
+
 // IMPORTS
-import ReactPlayer from 'react-player'
+import { useContext, useEffect, useReducer, useState } from 'react'
+import { AppContext } from '../../App'
+
+import { motion, useInView } from 'framer-motion'
 
 // COMPONENTS
-import IconsBar from '../Home/IconsBar'
-import LinkCard from "../Home/LinkCard"
+import NIconsBar from '../Home/nIconsBar'
 
-import br_video from '../../assets/video/br-video.mp4'
+import { BoxLabel, FlipperCard, ProjectCard, UnfurlHeading } from '../style/index'
+import { 
+    BrewReviewFront, BrewReviewBack,
+    MessengerPigeonFront, MessengerPigeonBack,
+    ChessFront, ChessBack,
+    GoFront, GoBack,
+    XPointerFront, XPointerBack,
+    OpenFLFront, OpenFLBack,
+    FantasyFantasyFront,
+    FantasyFantasyBack
+ } from '../ProjectCards/index';
 
-const brewReview_obj = {
-    name: 'BrewReview',
-    description: 'A Group project about Beer. Created in React Native and tested using Expo Go & Android Studio.',
-    img_url: '',
-    playable: false,
-    link: '/brewReview',
-    video_link: br_video,
-    github: 'https://github.com/gmharper/BrewReview'
+import { 
+    ArrowTurnRightDownIcon,
+    ArrowTrendingUpIcon,
+    ArrowTrendingDownIcon
+ } from '@heroicons/react/24/solid'
+
+// styling
+let styles = {
+    iconIndicator: {
+        position: 'absolute',
+        left: ((window.innerWidth)/2)+40
+    },
+    iconIndicatorText: {
+        color: 'white'
+    },
 }
 
-const xPointer_obj = {
-    name: 'xPointer',
-    description: 'An API assistant and API manager',
-    img_url: '',
-    playable: false,
-    link: '/xPointer',
-    github: 'https://github.com/gmharper/xPointer'
-}
+const scanner_indicator = 'items-center content-center justify-center min-w-60 w-60 h-12 invisible md:visible bg-linear-to-r from-green-600/60 to-green-500/60 contrast-200 backdrop-invert drop-shadow-xl drop-shadow-green-500/40 rounded-xl border-4 border-double border-black'
+const scanner_style = 'z-50 absolute h-30 w-30 content-center bg-green-500/30 contrast-200 backdrop-invert drop-shadow-xl drop-shadow-green-500/60 border-8 border-double border-green-700 rounded-xl pointer-events-none'
 
-const fatPigeon_obj = {
-    name: 'FatPigeon',
-    description: 'A mock social media site I created during the frontend & backend sections of my software bootcamp. Feed the pigeon!',
-    img_url: '',
-    playable: false,
-    link: '/fatPigeon',
-    github: 'https://github.com/gmharper/nc-news'
-}
-
-const chess_obj = {
-    name: 'Chess',
-    description: 'The classic game with a vibrant modern look',
-    img_url: '',
-    playable: true,
-    link: '/chess',
-    github: 'https://github.com/gmharper/gd-Chess'
-}
-
-const go_obj = {
-    name: 'Go',
-    description: '',
-    img_url: '',
-    playable: true,
-    link: '/go',
-    github: 'https://github.com/gmharper/gd-Go'
-}
-
-const thirteenStep_obj = {
-    name: '13Step',
-    description: '',
-    img_url: '',
-    playable: true,
-    link: '/13Step',
-    github: 'https://github.com/gmharper/gd-13Step'
-}
-
-const fantasyfantasy_obj = {
-    name: 'fantasy Fantasy',
-    description: '',
-    img_url: '',
-    playable: false,
-    link: '/fantasyfantasy',
-    github: 'https://github.com/gmharper/gd-FantasyFantasy'
-}
-
-const openFL_obj = {
-    name: 'OpenFL',
-    description: 'Create your own fantasy football environment & play with friends. Inspired by my addiction to Fantasy Premier League.',
-    img_url: '',
-    playable: false,
-    link: '/openFL',
-    github: 'https://github.com/gmharper/gd-OpenFL'
-}
+// PROJECT CARDS
+const project_cards = [
+    { id: 'brew_review', hasBeenFlipped: false },
+    { id: 'messenger_pigeon', hasBeenFlipped: false },
+    { id: 'mode_chess', hasBeenFlipped: false },
+    { id: 'xPointer', hasBeenFlipped: false },
+    { id: 'openFL', hasBeenFlipped: false },
+    { id: 'mode_go', hasBeenFlipped: false },
+    { id: 'fantasy_fantasy', hasBeenFlipped: false },
+]
 
 function Home () {
+    const { getWindowSize } = useContext(AppContext)
+
+    const [halfWindow, setHalfWindow] = useState((window.innerWidth/2))
+
+    const [activeElement, setActiveElement] = useState('')
+
+    const [projectScroll, setProjectScroll] = useState(0)
+
+    const [techHeadingMouseOver, setTechHeadingMouseOver] = useState(false)
+    const [projectHeadingMouseOver, setProjectHeadingMouseOver] = useState(false)
+
+
+    const projectReducer = (state, action) => {
+        return state.map((project) => {
+            if (project && project.id === action.id) return { ...project, hasBeenFlipped: true }
+            else return { ...project }
+        })
+    }
+
+    const [projects, setProjects] = useReducer(projectReducer, project_cards)
+
+    const handleScroll = (event) => {
+        const { scrollHeight, scrollTop, clientHeight } = event.target;
+        const scroll = scrollHeight - scrollTop - clientHeight
+
+        setProjectScroll(scrollTop)
+    }
+
+
+    useEffect(() => {
+        setHalfWindow((window.innerWidth)/2)
+    }, [project_cards, window.innerWidth])
+
     return (
-        <div className='justify-items-center px-8'>
-            <div className='m-8 justify-items-center'>
-                <IconsBar />
+        <motion.div id={'home_parent'} className='relative flex flex-col items-center'
+            initial={{ opacity: 0}}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.3 }}
+        >
+            <NIconsBar activeElement={activeElement} setActiveElement={setActiveElement} />
+            <div className={scanner_style} />
+
+            <div className='flex flex-row w-screen px-8 xl:px-16 my-4'>
+                <UnfurlHeading 
+                icon={<ArrowTrendingUpIcon 
+                    className='size-6 text-black'/>} 
+                text_closed={'SUPER DUPER TECH STACK'} 
+                text_open={'A LIST OF TECHNOLOGIES USED ON MY PROJECTS'} 
+                width_closed={300} 
+                width_open={500}/>
+
+                <div className='flex-1'/>
             </div>
 
-            <div className='flex-1 p-4 w-full bg-white rounded-xl'>
-                <div className='flex bg-black rounded-xl p-4 mt-8'>
-                    <p className='font-bold text-xl'>My Projects</p>
-                </div>
             
-                <div className='justify-items-center'>
-                    <div className='flex flex-row mt-8 mb-4'>
-                        <LinkCard obj={brewReview_obj} />
-                        <LinkCard obj={thirteenStep_obj} />
-                    </div>
 
-                    <div className='flex flex-row my-4'>
-                        <LinkCard obj={fatPigeon_obj} />
-                        <LinkCard obj={xPointer_obj} />
-                    </div>
-
-                    <div className='flex flex-row my-4'>
-                        <LinkCard obj={chess_obj} />
-                        <LinkCard obj={go_obj} />
-                    </div>
-                </div>    
-
-                    <div className='flex bg-zinc-800 py-4 px-8 rounded-xl'>
-                        <p>Ongoing Projects</p>
-                    </div>
-
-                    <div className='flex flex-row justify-items-center my-8'>
-                        <LinkCard obj={fantasyfantasy_obj} />
-                        <LinkCard obj={openFL_obj} />
-                    </div>
+            { getWindowSize()[0] < 1280 ?
+            <div className={'absolute top-31 right-5 ' +scanner_indicator} >
+                <p style={{ color: 'white' }} className='text-2xl font-dot_matrix content-center' >{activeElement ? activeElement.name : ''}</p>
             </div>
-        </div>
+            :
+            <div className={'absolute -top-14 ' +scanner_indicator} >
+                <p style={{ color: 'white' }} className='text-2xl font-dot_matrix content-center' >{activeElement ? activeElement.name : ''}</p>
+            </div>
+            }
+
+            <div id={'home_projects_heading'} className='flex flex-col justify-center items-center'>
+                <div className='flex flex-row mb-4'>
+                    <UnfurlHeading 
+                        icon={<ArrowTrendingDownIcon 
+                            className='size-6 text-black'/>} 
+                        text_closed={'MY PROJECTS'} 
+                        text_open={'A LIST OF PROJECTS THAT I AM CURRENTLY WORKING ON'} 
+                        width_closed={160} 
+                        width_open={500}/>
+
+                    <div className='flex-1'/>
+                </div>
+                
+            
+                <motion.div 
+                    className='flex flex-col h-160 -mr-8 bg-zinc-300 overflow-y-scroll overflow-x-none overscroll-contain rounded-sm'
+                    onScroll={(e) => {handleScroll(e)}}
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    >
+                    <div className='flex flex-row mr-8 mt-8'>
+                        <div className='flex-1' />
+                        <div className='h-6 px-2 mb-4 rounded-full bg-zinc-900 items-center content-center'>
+                            <p className='text-white text-xs'>note: all projects are demos and are not necessarily meant to represent complete website functionality.</p>
+                        </div>
+                    </div>
+
+                    <div className='grid place-items-center px-12 gap-x-20 gap-y-40 grid-cols-1 md:grid-cols-2 xl:grid-cols-3 mb-32 '>
+                        <FlipperCard
+                            id={'brew_review'}
+                            setFlipped={setProjects} 
+                            front={ <BrewReviewFront flipped={projects[0].hasBeenFlipped}/> }
+                            back={ <BrewReviewBack flipped={projects[0].hasBeenFlipped} /> } 
+                        />
+                        <FlipperCard
+                            id={'messenger_pigeon'}
+                            setFlipped={setProjects} 
+                            front={ <MessengerPigeonFront flipped={projects[1].hasBeenFlipped} /> } 
+                            back={ <MessengerPigeonBack flipped={projects[1].hasBeenFlipped} /> } 
+                        />
+                        <FlipperCard
+                            id={'chess'}
+                            setFlipped={setProjects}  
+                            front={ <ChessFront flipped={projects[2].hasBeenFlipped} /> } 
+                            back={ <ChessBack flipped={projects[2].hasBeenFlipped} /> } 
+                        />
+                        <FlipperCard
+                            id={'xPointer'}
+                            setFlipped={setProjects}  
+                            front={ <XPointerFront flipped={projects[3].hasBeenFlipped} /> } 
+                            back={ <XPointerBack flipped={projects[3].hasBeenFlipped} /> } 
+                        />
+                        <FlipperCard
+                            id={'openFL'}
+                            setFlipped={setProjects}  
+                            front={ <OpenFLFront flipped={projects[4].hasBeenFlipped} /> } 
+                            back={ <OpenFLBack flipped={projects[4].hasBeenFlipped} /> } 
+                        />
+                        <FlipperCard
+                            id={'fantasy_fantasy'}
+                            setFlipped={setProjects}  
+                            front={ <FantasyFantasyFront flipped={projects[6].hasBeenFlipped} /> } 
+                            back={ <FantasyFantasyBack flipped={projects[6].hasBeenFlipped} /> } 
+                            
+                            
+                        />
+                        <FlipperCard
+                            id={'go'} 
+                            setFlipped={setProjects}  
+                            front={ <GoFront flipped={projects[5].hasBeenFlipped} /> } 
+                            back={ <GoBack flipped={projects[5].hasBeenFlipped} /> } 
+                        />
+                        <FlipperCard front={ <></> } back={ <></> } 
+                            id={'empty'} 
+                            setFlipped={setProjects}
+                        />
+                    </div>    
+
+                    <div className='flex min-h-100 w-full bg-black'>
+                        <p className='text-white'>LinkedIn logo is a trademark of linkedIn</p>
+                    </div>
+                </motion.div>
+
+            </div>
+
+            <div className='-translate-y-15' id='home_scroll_heading'>
+                { (projectScroll < 100) ? 
+                <BoxLabel text='SCROLL FOR MORE' text_colour='text-black'/> : <></> 
+                }
+            </div>
+        </motion.div>
     )
 }
 

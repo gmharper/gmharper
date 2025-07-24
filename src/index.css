@@ -7,7 +7,8 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background-color: #181818;
+  overflow-y: clip;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -25,9 +26,9 @@ a:hover {
 }
 
 body {
-  margin: 0;
   min-width: 320px;
   min-height: 100vh;
+  height: 100%;
   width: 100%
 }
 
@@ -37,20 +38,54 @@ h1 {
 }
 
 button {
-  border-radius: 8px;
+  border-radius: 100%;
   border: 1px solid transparent;
-  padding: 0.6em 1.2em;
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
   cursor: pointer;
   transition: border-color 0.25s;
 }
 button:hover {
-  border-color: #646cff;
+  border-color: #2efc27;
 }
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+}
+
+
+.flippercard {
+  transform-style: preserve-3d;
+  transition: 150ms;
+  transform: perspective(1000px) rotateY(var(--rotate-y, 0)) translateY(var(--translate-y, 0));
+}
+
+.flippercard.flip {
+  --rotate-y: 180deg;
+}
+
+.flippercard .front {
+  left: 0;
+}
+
+.flippercard .front,
+.flippercard .back {
+  position: absolute;
+  backface-visibility: hidden;
+}
+
+.flippercard .back {
+  transform: rotateY(180deg);
+}
+
+
+@font-face {
+  font-family: 'dot_matrix';
+  src: url('../src/assets/fonts/dot_matrix/DOTMBold.TTF') format('truetype');
+}
+
+@font-face {
+  font-family: 'pixel_operator';
+  src: url('../src/assets/fonts/pixel_operator/PixelOperator-Bold.ttf') format('truetype');
 }
