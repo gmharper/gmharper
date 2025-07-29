@@ -219,11 +219,11 @@ function Home () {
                 </motion.div>
             </div>
 
-            <div className='-translate-y-20 animate-bounce' id='home_scroll_heading'>
+            {/* <div className='-translate-y-20 animate-bounce' id='home_scroll_heading'>
                 { (projectScroll < 100) ? 
                 <BoxLabel text='SCROLL FOR MORE' text_colour='text-black'/> : <></> 
                 }
-            </div>
+            </div> */}
         </motion.div>
     )
 }
