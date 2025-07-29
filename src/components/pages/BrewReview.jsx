@@ -1,8 +1,16 @@
-// IMPORTS
 
+"use-client"
+
+// IMPORTS
+import { useEffect } from "react"
+import { Link } from "react-router"
+import { motion } from "framer-motion"
+
+import br_video from '../../assets/video/br-video.mp4'
 
 // COMPONENTS
 import PersonCard from "../BrewReview/PersonCard"
+import { BoxLabel } from "../style/index"
 
 const group_members = [
     {
@@ -34,7 +42,20 @@ const group_members = [
 
 function BrewReview () {
     return (
-        <div>
+        <div className='flex-col'>
+            <div className='flex-row'>
+                <div className='flex flex-col'>
+                    <div className='rounded-xl overflow-hidden'>
+                        <video src={br_video} className='scale-180 h-100' autoPlay={true} loop={true} muted={true} />
+                    </div>
+                    <BoxLabel text={'DEMO VIDEO'} />
+                </div>
+
+                <div className='rounded-xl overflow-hidden'>
+                    <BoxLabel text={'WIREFRAMES'} />
+                </div>
+            </div>
+
             <div className='flex-col bg-blue'>
                 <h3>Made in Collaboration with:</h3>
                 <PersonCard person={group_members[0]}/>

@@ -1,6 +1,6 @@
 
 // COMPONENTS
-import { BoxLabel, IconsPanel, InfoTextPanel, ProjectCard } from "../style/index"
+import { BoxLabel, IconsPanel, InfoTextPanel, ProjectCard, ViewPage } from "../style/index"
 import { JavascriptIcon, ReactIcon, MotionJsIcon, FirebaseIcon, TailwindCssIcon, GithubIcon } from "../../assets/icons"
 import { Link } from "react-router"
 
@@ -43,8 +43,10 @@ function GoBack ({ flipped=false }) {
         face={'back'}    
         children={
             <div className='flex flex-row w-full h-full p-4'>
-                <div className='flex flex-col'>
-                    <InfoTextPanel text={'Hello Hello'} styling={'flex w-60 h-60 p-3 bg-zinc-300 rounded-lg'} hasBeenFlipped={flipped} />
+                <div className='flex flex-col gap-2'>
+                    <InfoTextPanel text={'Hello Hello'} styling={'flex '} hasBeenFlipped={flipped} />
+
+                    <ViewPage type='anchor' to={"/brewreview"} />
                 </div>
 
                 <div className='flex-1' />

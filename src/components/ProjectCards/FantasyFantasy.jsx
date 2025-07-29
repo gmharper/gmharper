@@ -1,7 +1,7 @@
 import { Link } from "react-router"
 
 // COMPONENTS
-import { BoxLabel, IconsPanel, InfoTextPanel, ProjectCard } from "../style"
+import { BoxLabel, IconsPanel, InfoTextPanel, ProjectCard, ViewPage } from "../style"
 import { BlenderIcon, GodotIcon, PythonIcon, GithubIcon } from "../../assets/icons"
 
 // STYLING
@@ -40,8 +40,10 @@ function FantasyFantasyBack ({ flipped=false }) {
         face={'back'}    
         children={
             <div className='flex flex-row w-full h-full p-4'>
-                <div className='flex flex-col'>
-                    <InfoTextPanel text={'Hello Hello'} styling={'flex w-60 h-60 p-3 bg-zinc-300 rounded-lg'} hasBeenFlipped={flipped} />
+                <div className='flex flex-col gap-2'>
+                    <InfoTextPanel text={'Hello Hello'} styling={'flex '} hasBeenFlipped={flipped} />
+
+                    <ViewPage type='route' to={"/brewreview"} />
                 </div>
 
                 <div className='flex-1' />

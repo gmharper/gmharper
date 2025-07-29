@@ -2,12 +2,12 @@ import { Tooltip as ReactTooltip } from "react-tooltip"
 import { Link } from "react-router"
 
 const tooltip_style = {
-    backgroundColor: 'lime',
+    backgroundColor: 'white',
     color: 'black',
     font: 'bold'
 }
 
-const icon_style = 'flex w-14 h-14 bg-linear-to-br from-blue-700 to-sky-500 rounded-full p-1 hover:border-2 border-lime-500 items-center'
+const icon_style = 'flex w-14 h-14 bg-radial from-zinc-800 to-zinc-900 outline-1 outline-zinc-800 rounded-full p-1 hover:shadow-md shadow-white items-center justify-center'
 
 function IconsPanel ({ icons_1, icons_2 }) {
     return (
@@ -23,6 +23,7 @@ function IconsPanel ({ icons_1, icons_2 }) {
                             }
                             <ReactTooltip
                                 style={tooltip_style}
+                                opacity={100}
                                 className='z-100 font-bold' 
                                 id={icon.id}
                                 content={icon.name}

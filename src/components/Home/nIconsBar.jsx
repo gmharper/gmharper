@@ -8,14 +8,15 @@ import App, { AppContext } from '../../App.jsx'
 
 import { 
     JavascriptIcon, TypescriptIcon, DotEnvIcon, PythonIcon,
-    ReactIcon, ReactRouterIcon, ReactQueryIcon,
+    ReactIcon, ReactRouterIcon, ReactQueryIcon, JqueryIcon,
     ExpoIcon, ExpressJsIcon, NodejsIcon, ViteJsIcon, NextJsIcon, NpmIcon, MotionJsIcon,
     FirebaseIcon, MongodbIcon, PostgresqlIcon, MySqlIcon, SupabaseIcon,
     GitIcon, GithubIcon,
     Html5Icon, Css3Icon, TailwindCssIcon, MarkdownIcon,
     BlenderIcon,
     GodotIcon,
-    AxiosIcon
+    AxiosIcon,
+    UbuntuIcon
 } from "../../assets/icons.jsx"
 
 // STYLING
@@ -33,16 +34,17 @@ const scroll_container_2 = scroll_container+' translate-x-full delay-45'
 const fade_container = 'z-20 w-screen h-28 bg-linear-to-l from-midnight via-midnight/0 to-midnight pointer-events-none'
 
 const icons_array= [
-    'javascript', 'typescript', 'python', 'dotenv', 'node', 'npm', 'break',
+    'ubuntu', 'javascript', 'typescript', 'python', 'dotenv', 'node', 'npm', 'break',
     'react', 'react_query', 'react_router', 'break2',
     'expo', 'express', 'vite', 'next', 'motion', 'break3',
     'postgres', 'mysql', 'firebase', 'mongodb', 'supabase', 'break4',
     'git', 'github', 'break5',
-    'html', 'css', 'tailwind', 'markdown', 'break6',
+    'html', 'css', 'tailwind', 'break6',
     'blender', 'breakend'
 ]
 
 const icons_list = {
+    'ubuntu':       { id: 'ubuntu',         name: 'UBUNTU',                 component: <UbuntuIcon className={icon_styling} />          },
     'javascript':   { id: 'javascript',     name: 'JAVASCRIPT',             component: <JavascriptIcon className={icon_styling}/>       },
     'typescript':   { id: 'typescript',     name: 'TYPESCRIPT',             component: <TypescriptIcon className={icon_styling}/>       },
     'python':       { id: 'python',         name: 'PYTHON',                 component: <PythonIcon className={icon_styling}/>           },
@@ -54,6 +56,7 @@ const icons_list = {
     'react':        { id: 'react',          name: 'REACT/NATIVE',           component: <ReactIcon className={icon_styling}/>            },
     'react_query':  { id: 'react_query',    name: 'REACT QUERY',            component: <ReactQueryIcon className={icon_styling}/>       },
     'react_router': { id: 'react_router',   name: 'REACT ROUTER',           component: <ReactRouterIcon className={icon_styling}/>      },
+    'jQuery':       { id: 'jQuery',        name: 'jQuery',                 component: <JqueryIcon className={icon_styling}/>            },
     'axios':        { id: 'axios',          name: 'AXIOS',                  component: <AxiosIcon className={icon_styling}/>            },
     'break2':       { id: 'break2'},
 
@@ -78,7 +81,6 @@ const icons_list = {
     'html':         { id: 'html',           name: 'HTML',                   component: <Html5Icon className={icon_styling}/>            },
     'css':          { id: 'css',            name: 'CSS',                    component: <Css3Icon className={icon_styling}/>             },
     'tailwind':     { id: 'tailwind',       name: 'TAILWIND CSS',           component: <TailwindCssIcon className={icon_styling}/>      },
-    'markdown':     { id: 'markdown',       name: 'MARKDOWN',               component: <MarkdownIcon className={icon_styling}/>         },
     'break6':       { id: 'break7'},
 
     'blender':      { id: 'blender',        name: 'BLENDER',                component: <BlenderIcon className={icon_styling}/>          },

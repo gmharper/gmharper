@@ -1,8 +1,8 @@
 // IMPORTS
 import { Link } from 'react-router'
 
-import github_logo from '../../assets/icons/github-mark.png'
-import linkedIn_logo from '../../assets/icons/LI-In-Bug.png'
+import github_logo from '../../assets/img/github-mark.svg'
+import linkedIn_logo from '../../assets/img/LI-In-Bug.png'
 
 function PersonCard ({ person }) {
     return (

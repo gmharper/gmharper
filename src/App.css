@@ -44,5 +44,21 @@
     60% { transform: rotate(220deg); }
     100% { transform: rotate(360deg); }
   }
+
+--animate-bounce: bounce 3s ease infinite;
+
+  @keyframes bounce {
+    0% { translate: 0px 0px; }
+    50% { translate: 0px 5px; }
+    100% { translate: 0px 0px; }
+  }
+
+--animate-grow: grow 2s ease infinite;
+
+  @keyframes grow {
+    0% { scale: 100% 100%; }
+    50% { scale: 102% 102%; }
+    100% { scale: 100% 100%; }
+  }
 }
 

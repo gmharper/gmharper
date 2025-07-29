@@ -36,10 +36,6 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/brewReview" element={<BrewReview />} />
-            {/* <Route path="/messengerPigeon" element={<FatPigeon />} />
-            <Route path="/xPointer" element={<XPointer />} />
-            <Route path="/chess" element={<Chess />} />
-            <Route path="/go" element={<Go />} /> */}
             <Route path="/fantasyfantasy" element={<FantasyFantasy />} />
             <Route path="/openFL" element={<OpenFL />} />
           </Routes>

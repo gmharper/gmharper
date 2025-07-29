@@ -1,7 +1,7 @@
 import { Link } from "react-router"
 
 // COMPONENTS
-import { BoxLabel, IconsPanel, InfoTextPanel, ProjectCard } from "../style/index";
+import { BoxLabel, IconsPanel, InfoTextPanel, ProjectCard, ViewPage } from "../style/index";
 import JavascriptIcon, { FirebaseIcon, MotionJsIcon, TailwindCssIcon, GithubIcon, ReactIcon } from "../../assets/icons";
 
 // STYLING
@@ -45,8 +45,10 @@ function ChessBack ({ flipped=false }) {
         face={'back'}
         children={
             <div className='flex flex-row w-full h-full p-4'>
-                <div className='flex flex-col'>
+                <div className='flex flex-col gap-2'>
                     <InfoTextPanel text={back_text} styling={'flex w-60 h-60 p-3 bg-zinc-300 rounded-sm'} hasBeenFlipped={flipped} />
+
+                    <ViewPage type={'anchor'} to={"https://modechess.netlify.app/"} />
                 </div>
 
                 <div className='flex-1' />

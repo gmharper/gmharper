@@ -2,10 +2,10 @@ import { Link } from "react-router"
 
 // COMPONENTS
 import { JavascriptIcon, ReactIcon, DotEnvIcon, ExpressJsIcon, JestIcon, PostgresqlIcon, SupabaseIcon, GithubIcon, AxiosIcon } from "../../assets/icons"
-import { BoxLabel, IconsPanel, InfoTextPanel, ProjectCard } from "../style/index"
+import { BoxLabel, IconsPanel, InfoTextPanel, ProjectCard, ViewPage } from "../style/index"
 
 // STYLING
-let icon_styling = 'flex w-full h-12'
+let icon_styling = 'flex w-full h-12 content-center items-center '
 
 const icons_1 = [
     { id: 'javascript', name: 'JAVASCRIPT', component: <JavascriptIcon className={icon_styling}/> },
@@ -19,7 +19,7 @@ const icons_2 = [
     { id: 'supabase', name: 'SUPABASE', component: <SupabaseIcon className={icon_styling}/> },
     { id: 'dotenv', name: 'DOT ENV', component: <DotEnvIcon className={icon_styling}/> },
     { id: 'axios', name: 'AXIOS', component: <AxiosIcon className={icon_styling}/> },
-    { id: 'jest', name: 'JEST TDD', component: <JestIcon className={icon_styling+' text-white p-2'}/> },
+    { id: 'jest', name: 'JEST TDD', component: <JestIcon className={icon_styling}/> },
     { id: 'spacer'},
     { id: 'github', name: 'GITHUB REPO', component: 
         <Link to={'https://github.com/gmharper/messengerpigeon'} className=''>
@@ -41,14 +41,18 @@ function MessengerPigeonFront () {
     )
 }
 
+const back_text = 'A mock social media site built on a RESTful API using PostgreSQL, express and axios. With full test driven development of the backend using Jest. Feed the Pigeon!'
+
 function MessengerPigeonBack ({ flipped=false }) {
     return (
         <ProjectCard 
         face={'back'}    
         children={
             <div className='flex flex-row w-full h-full p-4'>
-                <div className='flex flex-col'>
-                    <InfoTextPanel text={'Hello Hello'} styling={'flex w-60 h-60 p-3 bg-zinc-300 rounded-lg'} hasBeenFlipped={flipped} />
+                <div className='flex flex-col gap-2'>
+                    <InfoTextPanel text={back_text} styling={'flex '} hasBeenFlipped={flipped} />
+
+                    <ViewPage type='anchor' to={"messenger-pigeon.netlify.app"} />
                 </div>
 
                 <div className='flex-1' />
