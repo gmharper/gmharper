@@ -47,7 +47,7 @@ function App() {
         <img src={bg} className='absolute top-0 brightness-70 contrast-120 saturate-60' />
         <TopNavBar isHomepage={page==='home'}/>
           <Routes>
-            <Route path="/home" element={<Home />} />
+            <Route path={"/" || "/home"} element={<Home />} />
             <Route path="/brewReview" element={<BrewReview />} />
             <Route path="/fantasyfantasy" element={<FantasyFantasy />} />
             <Route path="/openFL" element={<OpenFL />} />
