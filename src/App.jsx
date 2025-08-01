@@ -8,10 +8,14 @@ import BotNavBar from './components/BotNavBar';
 
 import { Home, BrewReview, FantasyFantasy, OpenFL } from './components/pages/index';
 
+import bg from "./assets/img/bg.png"
+
 export const AppContext = createContext(null)
 
 function App() {
   const [page, setPage] = useState('home')
+
+  const [playAnimations, setPlayAnimations] = useState(true)
 
   const getWindowSize = useCallback(() => {
     const [size, setSize] = useState([0, 0]);
@@ -29,9 +33,18 @@ function App() {
     return size;
   } )
 
+  useEffect(() => {
+    setPlayAnimations(JSON.parse(window.sessionStorage.getItem("playAnimations")))
+  }, [])
+
+  useEffect(() => {
+    window.sessionStorage.setItem("playAnimations", playAnimations)
+  }, [playAnimations])
+
   return (
     <div className='h-full'>
-      <AppContext.Provider value={{ getWindowSize }} >
+      <AppContext.Provider value={{ playAnimations, setPlayAnimations, getWindowSize }} >
+        <img src={bg} className='absolute top-0 brightness-70 contrast-120' />
         <TopNavBar isHomepage={page==='home'}/>
           <Routes>
             <Route path="/" element={<Home />} />

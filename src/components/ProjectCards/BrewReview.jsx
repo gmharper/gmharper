@@ -1,8 +1,9 @@
 "use-client"
 
-import { useEffect } from "react"
+import { useContext, useEffect } from "react"
 import { Link } from "react-router"
 import { motion } from "framer-motion"
+import { AppContext } from "../../App"
 
 import br_video from '../../assets/video/br-video.mp4'
 
@@ -26,19 +27,30 @@ const icons_2 = [
     { id: 'android', name: 'ANDROID STUDIO', component: <AndroidIcon className={icon_styling}/> },
     { id: 'spacer'},
     { id: 'github', name: 'GITHUB REPO', component: 
-        <Link to={'https://github.com/gmharper/BrewReview'} className=''>
+        <a 
+            target='_blank'
+            rel='noopener noreferrer'
+            href={'https://github.com/gmharper/BrewReview'} className=''>
             <GithubIcon className={icon_styling}/>
-        </Link> 
+        </a> 
     }
 ]
 
 function BrewReviewFront ({ flipped=false }) {
+    const { playAnimations } = useContext(AppContext)
+
+    useEffect(() => {
+        let br_vid = document.getElementById("br_vid")
+
+        playAnimations ? br_vid.play() : br_vid.pause()
+    }, [playAnimations])
+
     return (
         <ProjectCard
         face={'front'} 
         children={
             <div className='w-full h-full'>
-                <video src={br_video} className='scale-180 h-100' autoPlay={true} loop={true} muted={true} />
+                <video id={"br_vid"} src={br_video} className='scale-180 h-100' autoPlay={playAnimations} loop={true} muted={true} controls={false} />
                 <div className='absolute bottom-5 right-5'>
                     <BoxLabel colour='bg-lime-400' text={'BREW REVIEW'} />
                 </div>

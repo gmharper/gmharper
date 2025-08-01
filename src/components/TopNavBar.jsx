@@ -1,31 +1,82 @@
+
+"use-client"
+
 // IMPORTS
-import { useContext, useEffect, useState } from "react"
+import { useContext, useEffect, useRef, useState } from "react"
 import { Link } from "react-router"
+import { motion, useInView } from "framer-motion"
 
 import { AppContext } from "../App"
 
+// COMPONENTS
 import {
-    ArrowTurnDownRightIcon,
-    ArrowDownRightIcon, 
-    HomeIcon,
-    EnvelopeIcon,
-    PhoneIcon
+    HomeIcon, StopCircleIcon
 } from "@heroicons/react/24/solid"
-
-import github_logo from '../assets/img/github-mark.svg'
-import linkedIn_logo from '../assets/img/LI-In-Bug.png'
 
 import { ContactHeading } from "./style"
 
-function TopNavBar ({ isHomepage }) {
-    const { getWindowSize } = useContext(AppContext)
+import crt_effect from "../assets/img/crt-effect.jpg"
+
+// STYLING
+let scanner_indicator = 'items-center content-center justify-center h-12 bg-linear-to-r from-fuchsia-500/60 to-violet-400/60 contrast-200 drop-shadow-xl drop-shadow-violet-500/40 rounded-xl border-4 border-double border-black px-2'
+
+const NameIndicator = ({ text="", playAnimations }) => {
+    let textArray = text.split("")
+    let ref = useRef(null)
+
+    let isInView = useInView(ref)
 
     return (
-        <div className='relative flex h-12 mx-8 mt-4 mb-8 rounded-xs'>
-            <div className='rounded-sm bg-stone-100 shadow-md shadow-sky-500/40 p-1'>
+        <div className='flex flex-row flex-shrink drop-shadow-sm drop-shadow-white/60'>
+            <motion.p
+                ref={ref}
+                style={{ color: 'white' }}
+                className='text-left font-pixel_operator h-full flex-shrink justify-left content-left'
+                variants={{
+                    visible: { opacity: 1 }, hidden: { opacity: 0 }
+                }}
+                transition={{ duration: 0, staggerChildren: 0.05 }}
+                initial={{ opacity: 0 }}
+                animate={"visible"}
+            >
+                { textArray.map((char, index) => {
+                    return <motion.span
+                        key={char+index}
+                        className='text-3xl text-left font-pixel_operator h-full'
+                        transition={{ duration: 0 }}
+                        initial={{ opacity: 0 }}
+                        variants={{ 
+                            visible: { opacity: 1 }, hidden: { opacity: 0 }
+                        }}
+                        animate={{ opacity: 1 }}
+                    >
+                        {char}
+                    </motion.span >
+                }) }
+                <span className='text-left font-pixel_operator animate-cursor-blink'>.</span>
+            </motion.p >
+        </div>
+    )
+}
+
+function TopNavBar ({ isHomepage }) {
+    const { playAnimations, getWindowSize } = useContext(AppContext)
+
+    const [active, setActive] = useState('name')
+
+    const ref = useRef(null)
+
+    return (
+        <div className='relative flex flex-row h-12 mx-8 mt-4 mb-8 rounded-xs'>
+            <div className='rounded-sm bg-stone-100 shadow-md shadow-sky-200/40 p-1 mr-4'>
                 <Link to="" className='content-center' onClick={() => { if (isHomepage) window.location.reload() }}>
                     <HomeIcon className='p-1 text-black h-full hover:scale-115' />
                 </Link>
+            </div>
+
+            <div className={'flex flex-row overflow-hidden ' +scanner_indicator} >
+                <NameIndicator text={"GEORGE HARPER | FULL-STACK DEVELOPER "} playAnimations={playAnimations}/>
+                <img src={crt_effect} className='absolute scale-100 contrast-50 opacity-30'/>
             </div>
 
             <div className='flex-1' />

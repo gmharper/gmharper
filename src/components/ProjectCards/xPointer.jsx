@@ -16,9 +16,13 @@ const icons_2 = [
     { id: 'axios', name: 'AXIOS', component: <AxiosIcon className={icon_styling}/> },
     { id: 'spacer'},
     { id: 'github', name: 'GITHUB REPO', component: 
-        <Link to={'https://github.com/gmharper/'} className=''>
+        <a 
+            target='_blank'
+            rel='noopener noreferrer'
+            href={'https://github.com/gmharper/xPointer'} className=''>
             <GithubIcon className={icon_styling}/>
-        </Link> }
+        </a> 
+    }
 ]
 
 function XPointerFront () {
@@ -43,7 +47,7 @@ function XPointerBack ({ flipped=false }) {
                 <div className='flex flex-col gap-2'>
                     <InfoTextPanel text={back_text} styling={'flex '} hasBeenFlipped={flipped} />
 
-                    <ViewPage type='anchor' to={"/brewreview"} />
+                    <ViewPage type='anchor' to={"xpointer.netlify.app"} />
                 </div>
 
                 <div className='flex-1' />

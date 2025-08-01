@@ -278,6 +278,25 @@ const GodotIcon = (props) => (
 );
 
 
+
+// EXTRA
+const DoveIcon = (props) => {
+    <svg xmlns="http://www.w3.org/2000/svg" fill={"currentColor"} viewBox="0 0 640 640" width={24} height={24} {...props}>
+        {/*`<!--!Font Awesome Pro v7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2025 Fonticons, Inc.-->`*/}
+        <path d="M560 128C573.2 128 580.7 143.1 572.8 153.6L544 192L544 368C544 447.5 479.5 512 400 512L288 512L241.7 558.3C231.3 568.7 215.2 570.7 202.6 563.1L105.5 504.9C88.5 494.7 90.5 469.4 108.9 462L224 416C87.8 375.1 71.5 233.8 86 159.7C89.6 141.9 109.3 135.4 125.3 144.2L384 288L384 208C384 163.8 419.8 128 464 128L560 128zM464 184C450.7 184 440 194.7 440 208C440 221.3 450.7 232 464 232C477.3 232 488 221.3 488 208C488 194.7 477.3 184 464 184zM246.5 54.4C258.9 40.7 279.8 45.5 289 61.5L345.4 159.8C339.6 174.2 336.2 189.9 336 206.3L202.1 132C212.2 100.4 229.1 73.6 246.5 54.4z"/>
+    </svg>
+}
+
+const UFOIcon = (props) => {
+    <svg xmlns="http://www.w3.org/2000/svg" fill={"currentColor"} viewBox="0 0 24 24" width={24} height={24} {...props}>
+        <path d="M16.95 9.01c3.02.739 5.05 2.123 5.05 3.714C22 15.091 17.52 17 12 17S2 15.091 2 12.724C2 11.134 4.04 9.739 7.07 9" />
+        <path d="M7 9c0 1.105 2.239 2 5 2s5-.895 5-2v-.035C17 6.223 14.761 4 12 4S7 6.223 7 8.965zm8 8l2 3m-8.5-3L7 20m5-6h.01M7 13h.01M17 13h.01" />
+    </svg>
+}   
+
+    
+
+
 export default JavascriptIcon
 export { 
     UbuntuIcon, JavascriptIcon, TypescriptIcon, DotEnvIcon, PythonIcon, AxiosIcon,
@@ -286,5 +305,6 @@ export {
     FirebaseIcon, MongodbIcon, PostgresqlIcon, MySqlIcon, SupabaseIcon,
     GitIcon, GithubIcon,
     Html5Icon, Css3Icon, TailwindCssIcon, MarkdownIcon,
-    AndroidIcon, BlenderIcon, GodotIcon
+    AndroidIcon, BlenderIcon, GodotIcon,
+    DoveIcon, UFOIcon
 }

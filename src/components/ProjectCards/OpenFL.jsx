@@ -4,6 +4,8 @@ import { Link } from "react-router"
 import { BlenderIcon, GodotIcon, PythonIcon, GithubIcon } from "../../assets/icons"
 import { BoxLabel, IconsPanel, InfoTextPanel, ProjectCard, ViewPage } from "../style/index"
 
+import openFL_img from "../../assets/img/openFL.png"
+
 // STYLING
 let icon_styling = 'flex w-full h-12'
 
@@ -17,9 +19,13 @@ const icons_2 = [
     { id: 'excel', name: 'EXCEL', },
     { id: 'spacer'},
     { id: 'github', name: 'GITHUB REPO', component: 
-        <Link to={'https://github.com/gmharper/gd-OpenFL'} className=''>
+        <a 
+            target='_blank'
+            rel='noopener noreferrer'
+            href={'https://github.com/gmharper/gd-OpenFL'} className=''>
             <GithubIcon className={icon_styling}/>
-        </Link> }
+        </a> 
+    }
 ]
 
 function OpenFLFront () {
@@ -27,7 +33,8 @@ function OpenFLFront () {
         <ProjectCard 
         face={'front'}
         children={
-            <div className='w-full h-full'>
+            <div className='w-full h-full overflow-hidden'>
+                <img src={openFL_img} className='scale-160 rotate-1'/>
                 <div className='absolute bottom-5 right-5'>
                     <BoxLabel colour='bg-lime-400' text={'OPENFL'} />
                 </div>
@@ -49,7 +56,7 @@ function OpenFLBack ({ flipped=false }) {
                 <div className='flex flex-col gap-2'>
                     <InfoTextPanel text={back_text} styling={'flex '} hasBeenFlipped={flipped} />
 
-                    <ViewPage type='route' to={"/brewreview"} />
+                    {/* <ViewPage type='route' to={"/brewreview"} /> */}
                 </div>
 
                 <div className='flex-1' />

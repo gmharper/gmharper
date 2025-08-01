@@ -11,9 +11,14 @@ const icons_1 = []
 const icons_2 = [   
     { id: 'spacer' }, 
     { id: 'captchas', name: 'CAPTCHA GALLERY', component: 
-        <Link to={'https://github.com/Bryxny/play-captcha'} className=''>
+        <a 
+            target='_blank'
+            rel='noopener noreferrer'
+            href={'https://github.com/Bryxny/play-captcha'} className=''>
             <GithubIcon className={icon_styling}/>
-        </Link> },]
+        </a> 
+    }
+]
 
 function CaptchaGalleryFront () {
     return (

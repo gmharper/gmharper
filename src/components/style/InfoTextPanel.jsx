@@ -1,15 +1,16 @@
 "use-client"
+
 import { useRef } from "react"
 import { motion, useInView } from "framer-motion"
 
-function InfoTextPanel ({ text, styling, hasBeenFlipped=false }) {
+function InfoTextPanel ({ text, styling='', hasBeenFlipped=false }) {
     let textArray = text.split("")
 
     let ref = useRef(null)
     let isInView = useInView(ref)
 
     return (
-        <div className={'w-60 bg-zinc-900 outline-1 outline-zinc-700 rounded-sm p-3 ' +styling}>
+        <div className={'flex w-60 bg-zinc-900 outline-1 outline-zinc-700 rounded-sm p-3 ' +(styling ? styling : '')}>
             <motion.p
                 ref={ref}
                 style={{ color: 'white' }}

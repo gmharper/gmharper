@@ -57,7 +57,7 @@ function UnfurlHeading ({ icon, text_closed, text_open, width_closed, width_open
         { icon }
 
         { open ? <></> :
-            <div className='z-15 absolute w-3 h-3 bg-sky-500 -top-1 -right-1 rounded-full' />
+            <div className='z-15 absolute w-3 h-3 bg-sky-400 -top-1 -right-1 rounded-full' />
         }
         </motion.div>
     )

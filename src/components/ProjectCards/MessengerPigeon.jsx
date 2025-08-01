@@ -1,8 +1,9 @@
 import { Link } from "react-router"
 
 // COMPONENTS
-import { JavascriptIcon, ReactIcon, DotEnvIcon, ExpressJsIcon, JestIcon, PostgresqlIcon, SupabaseIcon, GithubIcon, AxiosIcon } from "../../assets/icons"
+import { JavascriptIcon, ReactIcon, DotEnvIcon, ExpressJsIcon, JestIcon, PostgresqlIcon, SupabaseIcon, GithubIcon, AxiosIcon, DoveIcon } from "../../assets/icons"
 import { BoxLabel, IconsPanel, InfoTextPanel, ProjectCard, ViewPage } from "../style/index"
+import Dove from "../../assets/img/dove-solid.svg"
 
 // STYLING
 let icon_styling = 'flex w-full h-12 content-center items-center '
@@ -22,9 +23,13 @@ const icons_2 = [
     { id: 'jest', name: 'JEST TDD', component: <JestIcon className={icon_styling}/> },
     { id: 'spacer'},
     { id: 'github', name: 'GITHUB REPO', component: 
-        <Link to={'https://github.com/gmharper/messengerpigeon'} className=''>
+        <a 
+            target='_blank'
+            rel='noopener noreferrer'
+            href={'https://github.com/gmharper/messengerpigeon'} className=''>
             <GithubIcon className={icon_styling}/>
-        </Link> },
+        </a>  
+    },
 ]
 
 function MessengerPigeonFront () {
@@ -33,6 +38,10 @@ function MessengerPigeonFront () {
         face={'front'}
         children={
             <div className='w-full h-full p-4'>
+                <div className='p-12'>
+                    <img src={Dove} className='flex w-full h-full text-white invert'/>
+
+                </div>
                 <div className='absolute bottom-5 right-5'>
                     <BoxLabel colour='bg-lime-400' text={'MESSENGER PIGEON'} />
                 </div>
@@ -41,7 +50,7 @@ function MessengerPigeonFront () {
     )
 }
 
-const back_text = 'A mock social media site built on a RESTful API using PostgreSQL, express and axios. With full test driven development of the backend using Jest. Feed the Pigeon!'
+const back_text = 'A lightweight mock social media site built on a RESTful API using PostgreSQL, express and axios. With full test driven development of the backend using Jest. Feed the Pigeon!'
 
 function MessengerPigeonBack ({ flipped=false }) {
     return (

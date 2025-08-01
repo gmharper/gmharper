@@ -18,9 +18,13 @@ const icons_2 = [
     { id: 'firebase', name: 'FIREBASE', component: <FirebaseIcon className={icon_styling}/> },
     { id: 'spacer'},
     { id: 'github', name: 'GITHUB REPO', component: 
-        <Link to={'https://github.com/gmharper/'} className=''>
+        <a 
+            target='_blank'
+            rel='noopener noreferrer'
+            href={'https://github.com/gmharper/gameboard_template'} className=''>
             <GithubIcon className={icon_styling}/>
-        </Link> }
+        </a> 
+    }
 ]
 
 function GoFront () {
@@ -37,6 +41,8 @@ function GoFront () {
     )
 }
 
+const back_text = ''
+
 function GoBack ({ flipped=false }) {
     return (
         <ProjectCard 
@@ -44,7 +50,7 @@ function GoBack ({ flipped=false }) {
         children={
             <div className='flex flex-row w-full h-full p-4'>
                 <div className='flex flex-col gap-2'>
-                    <InfoTextPanel text={'Hello Hello'} styling={'flex '} hasBeenFlipped={flipped} />
+                    <InfoTextPanel text={back_text} styling={''} hasBeenFlipped={flipped} />
 
                     <ViewPage type='anchor' to={"/brewreview"} />
                 </div>

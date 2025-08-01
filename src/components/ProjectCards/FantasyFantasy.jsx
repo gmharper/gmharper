@@ -15,9 +15,13 @@ const icons_2 = [
     { id: 'blender', name: 'BLENDER', component: <BlenderIcon className={icon_styling}/> },
     { id: 'spacer'},
     { id: 'github', name: 'GITHUB REPO', component: 
-        <Link to={'https://github.com/gmharper/gd-FantasyFantasy'} className=''>
+        <a 
+            target='_blank'
+            rel='noopener noreferrer'
+            href={'https://github.com/gmharper/gd-FantasyFantasy'} className=''>
             <GithubIcon className={icon_styling}/>
-        </Link> }
+        </a> 
+    }
 ]
 
 function FantasyFantasyFront () {
@@ -43,7 +47,7 @@ function FantasyFantasyBack ({ flipped=false }) {
                 <div className='flex flex-col gap-2'>
                     <InfoTextPanel text={'Hello Hello'} styling={'flex '} hasBeenFlipped={flipped} />
 
-                    <ViewPage type='route' to={"/brewreview"} />
+                    {/* <ViewPage type='route' to={"/brewreview"} /> */}
                 </div>
 
                 <div className='flex-1' />

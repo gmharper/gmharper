@@ -1,8 +1,14 @@
-import { Link } from "react-router"
+"use-client"
+
+import { useContext } from "react";
+import { AppContext } from "../../App";
+
+import modechess_img from "../../assets/img/modechess.png"
 
 // COMPONENTS
 import { BoxLabel, IconsPanel, InfoTextPanel, ProjectCard, ViewPage } from "../style/index";
 import JavascriptIcon, { FirebaseIcon, MotionJsIcon, TailwindCssIcon, GithubIcon, ReactIcon } from "../../assets/icons";
+
 
 // STYLING
 let icon_styling = 'flex w-full h-12'
@@ -18,17 +24,23 @@ const icons_2 = [
     { id: 'firebase', name: 'FIREBASE', component: <FirebaseIcon className={icon_styling}/> },
     { id: 'spacer' },
     { id: 'github', name: 'GITHUB REPO', component: 
-        <Link to={'https://github.com/gmharper/'} className=''>
+        <a 
+            target='_blank'
+            rel='noopener noreferrer'
+            href={'https://github.com/gmharper/gameboard_template'} className=''>
             <GithubIcon className={icon_styling}/>
-        </Link> }
+        </a> 
+    }
 ]
 
 function ChessFront () {
+    const { playAnimations } = useContext(AppContext)
     return (
         <ProjectCard 
         face={'front'}
         children={
-            <div className='w-full h-full bg-stone-100'>
+            <div className='w-full h-full bg-stone-100 overflow-hidden'>
+                <img src={modechess_img} className={'scale-260 rotate-1 translate-y-20 translate-x-10 ' + (playAnimations && 'animate-chess-move')}/>
                 <div className='absolute bottom-5 right-5'>
                     <BoxLabel colour='bg-lime-400' text={'MODE:CHESS'} />
                 </div>
@@ -37,7 +49,8 @@ function ChessFront () {
     )
 }
 
-const back_text = 'Browser based chess built on React.'
+const back_text = 'The timeless classic built for the browser using React. With features like \
+profile customisation, replay functionality and a stats centre to peruse over your game data (coming soon)'
 
 function ChessBack ({ flipped=false }) {
     return (
@@ -46,7 +59,7 @@ function ChessBack ({ flipped=false }) {
         children={
             <div className='flex flex-row w-full h-full p-4'>
                 <div className='flex flex-col gap-2'>
-                    <InfoTextPanel text={back_text} styling={'flex w-60 h-60 p-3 bg-zinc-300 rounded-sm'} hasBeenFlipped={flipped} />
+                    <InfoTextPanel text={back_text} styling={'flex '} hasBeenFlipped={flipped} />
 
                     <ViewPage type={'anchor'} to={"https://modechess.netlify.app/"} />
                 </div>

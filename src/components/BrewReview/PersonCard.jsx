@@ -2,7 +2,7 @@
 import { Link } from 'react-router'
 
 import github_logo from '../../assets/img/github-mark.svg'
-import linkedIn_logo from '../../assets/img/LI-In-Bug.png'
+import linkedIn_logo from '../../assets/img/linkedIn-logo.png'
 
 function PersonCard ({ person }) {
     return (

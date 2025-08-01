@@ -28,10 +28,9 @@ const tooltip_style = {
     borderRadius: '2px' }
 
 const icon_styling = 'min-w-20 w-28 min-h-20 h-28 hover:scale-110 drop-shadow-sm drop-shadow-sky-500'
-const parent_container = 'relative flex flex-row w-screen mb-4 whitespace-nowrap'
-const scroll_container = 'absolute flex flex-row w-fit animate-scrolling '
-const scroll_container_2 = scroll_container+' translate-x-full delay-45'
-const fade_container = 'z-20 w-screen h-28 bg-linear-to-l from-midnight via-midnight/0 to-midnight pointer-events-none'
+const parent_container = 'z-20 relative flex flex-row w-screen mb-4 bg-black/0 whitespace-nowrap'
+
+const fade_container = 'z-20 w-screen h-28 bg-linear-to-l from-midnight/0 via-midnight/0 to-midnight/0 pointer-events-none'
 
 const icons_array= [
     'ubuntu', 'javascript', 'typescript', 'python', 'dotenv', 'node', 'npm', 'break',
@@ -89,6 +88,11 @@ const icons_list = {
 }
 
 function NIconsBar ({ activeElement, setActiveElement }) {
+    const { playAnimations } = useContext(AppContext)
+
+    let scroll_container = 'absolute flex flex-row w-fit ' + (playAnimations && 'animate-scrolling ')
+    let scroll_container_2 = scroll_container+' translate-x-full delay-45'
+
     const [mousePos, setMousePos] = useState({ x: 0, y: 0})
     const [timer, setTimer] = useState(0)
     const [mouseOver, setMouseOver] = useState(false)

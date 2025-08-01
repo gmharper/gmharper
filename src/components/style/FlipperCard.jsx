@@ -17,6 +17,7 @@ function FlipperCard ({ id, front, back, setFlipped }) {
         }}
             ref={ref}
             onMouseOut={() => {setMouseOver(false)}}
+            className='shadow-xl'
             variants={{ 
                 'hidden': {
                     opacity: 0.1
@@ -42,7 +43,7 @@ function FlipperCard ({ id, front, back, setFlipped }) {
                     {back}
                 </div>
 
-                <div className={'z-0 absolute w-full h-full rounded-xl ' +(mouseOver ? 'outline-16 bg-radial from-green-500 to-green-500/0 outline-green-500 outline-double animate-pulsing' : '')} />
+                <div className={'z-0 absolute w-full h-full rounded-xl ' +(mouseOver ? 'outline-10 bg-radial from-lime-300 to-lime-300/0 outline-lime-300 saturate-200 outline-double animate-pulsing' : '')} />
             </div>
         </motion.div>
     )

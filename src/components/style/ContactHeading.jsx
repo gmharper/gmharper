@@ -8,10 +8,14 @@ import { Link } from "react-router"
 import { motion, useInView } from "framer-motion"
 
 import github_logo from '../../assets/img/github-mark.svg'
-import linkedIn_logo from '../../assets/img/LI-In-Bug.png'
+import linkedIn_logo from '../../assets/img/linkedIn-logo.png'
+
+import { UFOIcon } from "../../assets/icons.jsx"
+
+import UFO from "../../assets/img/tabler-ufo-icon.svg"
 
 // COMPONENTS
-import { ArrowTurnDownRightIcon, EnvelopeIcon, PhoneIcon } from "@heroicons/react/24/solid"
+import { ArrowTurnDownRightIcon, ChevronLeftIcon, ChevronRightIcon, EnvelopeIcon, PhoneIcon } from "@heroicons/react/24/solid"
 
 function ContactHeading () {
     const { getWindowSize } = useContext(AppContext)
@@ -22,33 +26,67 @@ function ContactHeading () {
     let ref = useRef(null)
     let isInView = useInView(ref)
 
+    const OpenMail = ({ subject='', body='', children }) => {
+        return (
+            <a href={`mailto:georgemichaelharper@gmail.com?subject=${encodeURIComponent(subject) || ''}&body=${encodeURIComponent(body) || ''}`}>
+                {children}
+            </a>
+        )
+    }
+
     const Icons = () => {
         return (
             <div className='flex flex-row'>
-                <Link to='https://github.com/gmharper' className='flex'>
+                
+                <OpenMail 
+                    children={
+                        <div className='flex hover:scale-110 mr-2 w-12 h-12 text-white bg-red-500 rounded-full overflow-hidden p-1'>
+                            <EnvelopeIcon className='w-full h-full text-white'/>
+                        </div>
+                    }
+                />
+
+                <a 
+                    href='https://github.com/gmharper' 
+                    className='flex '
+                    target='_blank'
+                    rel='noopener noreferrer'
+                >
                     <div className='flex hover:scale-110 mr-2 w-12 h-12 text-white'>           
                         <img src={github_logo} className=''/>
                     </div>
-                </Link>
+                </a>
 
-                <Link to='https://www.linkedin.com/in/george-harper-4a6132357' className='flex'>
-                    <div className='flex hover:scale-110 w-16 h-12 aspect-1/1'>           
+                <a 
+                    href='https://www.linkedin.com/in/george-harper-4a6132357' 
+                    className='flex '
+                    target='_blank'
+                    rel='noopener noreferrer'
+                >
+                    <div className='flex hover:scale-110 w-12 h-12 aspect-1/1 rounded-full bg-white overflow-hidden'>           
                         <img src={linkedIn_logo} className=''/>
                     </div>
-                </Link>
+                </a>
             </div>
         )
     }
 
     const Contacts = () => {
         return (
-            <div className='flex flex-row'>
+            <div className='flex flex-row overflow-hidden'>
                 <div className='flex flex-col mr-2'>
-                    <p className='font-bold text-black'>CONTACT</p>
-                    <ArrowTurnDownRightIcon className='w-6 font-bold text-black' />
+                    <div className='flex flex-row bg-zinc-300 rounded-sm px-1'>
+                        <img src={UFO}/>
+                        <p className='font-bold text-black whitespace-nowrap overflow-hidden ml-1'>{open && 'MAKE CONTACT'}</p>
+                    </div>
+
+                    <div className='flex flex-row w-full'>
+                        <div className='flex-1' />
+                        <ArrowTurnDownRightIcon className='w-6 font-bold text-black' />
+                    </div>
                 </div>
 
-                <div className='flex flex-col mr-2' >
+                {/* <div className='flex flex-col mr-2' >
                     <div className='flex flex-row items-center'>
                         <EnvelopeIcon className='w-4 h-full text-black mr-1' />
                         <p className='font-bold text-left text-black'>
@@ -62,43 +100,43 @@ function ContactHeading () {
                             07834738781
                         </p>
                     </div>
-                </div>
-
-                <div className='flex-1' />
-
-                <Icons />
+                </div> */}
             </div>
         )
     }
 
     return (
-        <>
-            { getWindowSize()[0] >= 1024 ? 
-                <div className='relative flex flex-row h-16 w-125 rounded-xs p-2 bg-white overflow-hidden' >
-                    <Contacts />    
-                </div>
-                : 
-                <motion.div className='relative flex flex-row h-16 rounded-xs p-2 bg-white'
+        <div className='flex flex-row h-16 rounded-xs p-2 bg-white'
+            onMouseLeave={() => {
+                setOpen(false)
+            }}
+        >
+            
+            <>
+                <div className='h-full items-center content-center border-r-1 border-zinc-500 mr-2'
                     onMouseEnter={() => {
                         setOpen(true) 
                         setOpened(true)}}
-                    onMouseLeave={() => {
-                        setOpen(false)
-                    }}
-                    initial = {{ width: 130 }}
-                    animate = {{ width: open ? 500 : 130 }}
-                    transition = {{ duration: 0.3, delayChildren: 30 }}
                 >
                 { open ? 
-                    <Contacts /> : 
-                    <div className='flex flex-row relative'>
-                        <div className='z-40 absolute w-3 h-3 bg-sky-400 -top-3 -right-2 rounded-full' />
-                        <Icons />
-                    </div>
+                    <ChevronRightIcon className='h-6 font-bold text-black aspect-square'/> :
+                    <ChevronLeftIcon className='h-6 font-bold text-black aspect-square'/>
+                }
+                </div>
+                <motion.div className='relative flex flex-row rounded-xs bg-white'
+                    initial = {{ width: 0 }}
+                    animate = {{ width: open ? 170 : 0 }}
+                    transition = {{ duration: 0.3 }}
+                >
+                { open ? 
+                    <Contacts />
+                    :
+                    <div className='z-40 absolute w-3 h-3 bg-sky-400 -top-3 -left-11.5 rounded-full' />
                 }
                 </motion.div>
-            }
-        </>
+            </> 
+        <Icons />     
+        </div>
 
         
     )
