@@ -18,7 +18,7 @@ import { ContactHeading } from "./style"
 import crt_effect from "../assets/img/crt-effect.jpg"
 
 // STYLING
-let scanner_indicator = 'items-center content-center justify-center h-12 bg-linear-to-r from-fuchsia-500/60 to-violet-400/60 contrast-200 drop-shadow-xl drop-shadow-violet-500/40 rounded-xl border-4 border-double border-black px-2'
+let scanner_indicator = 'items-center content-center justify-center h-12 bg-linear-to-r from-zinc-200/80 to-white contrast-150 drop-shadow-xl drop-shadow-yellow-500/40 rounded-xl border-4 border-double border-black px-2'
 
 const NameIndicator = ({ text="", playAnimations }) => {
     let textArray = text.split("")
@@ -30,7 +30,7 @@ const NameIndicator = ({ text="", playAnimations }) => {
         <div className='flex flex-row flex-shrink drop-shadow-sm drop-shadow-white/60'>
             <motion.p
                 ref={ref}
-                style={{ color: 'white' }}
+                style={{ color: 'black' }}
                 className='text-left font-pixel_operator h-full flex-shrink justify-left content-left'
                 variants={{
                     visible: { opacity: 1 }, hidden: { opacity: 0 }
@@ -67,15 +67,15 @@ function TopNavBar ({ isHomepage }) {
     const ref = useRef(null)
 
     return (
-        <div className='relative flex flex-row h-12 mx-8 mt-4 mb-8 rounded-xs'>
+        <div className='relative flex flex-row h-12 sm:mx-8 mt-4 rounded-xs mb-4'>
             <div className='rounded-sm bg-stone-100 shadow-md shadow-sky-200/40 p-1 mr-4'>
-                <Link to="" className='content-center' onClick={() => { if (isHomepage) window.location.reload() }}>
+                <Link to="/home" className='content-center' >
                     <HomeIcon className='p-1 text-black h-full hover:scale-115' />
                 </Link>
             </div>
 
             <div className={'flex flex-row overflow-hidden ' +scanner_indicator} >
-                <NameIndicator text={"GEORGE HARPER | FULL-STACK DEVELOPER "} playAnimations={playAnimations}/>
+                <NameIndicator text={getWindowSize()[0] <=768 ? "GEORGE HARPER" : "GEORGE HARPER | FULL-STACK DEVELOPER "} playAnimations={playAnimations}/>
                 <img src={crt_effect} className='absolute scale-100 contrast-50 opacity-30'/>
             </div>
 

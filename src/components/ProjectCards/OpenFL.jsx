@@ -34,7 +34,7 @@ function OpenFLFront () {
         face={'front'}
         children={
             <div className='w-full h-full overflow-hidden'>
-                <img src={openFL_img} className='scale-160 rotate-1'/>
+                <img src={openFL_img} className='scale-160 rotate-1 translate-x-10'/>
                 <div className='absolute bottom-5 right-5'>
                     <BoxLabel colour='bg-lime-400' text={'OPENFL'} />
                 </div>

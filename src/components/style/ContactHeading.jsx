@@ -37,7 +37,6 @@ function ContactHeading () {
     const Icons = () => {
         return (
             <div className='flex flex-row'>
-                
                 <OpenMail 
                     children={
                         <div className='flex hover:scale-110 mr-2 w-12 h-12 text-white bg-red-500 rounded-full overflow-hidden p-1'>
@@ -75,9 +74,9 @@ function ContactHeading () {
         return (
             <div className='flex flex-row overflow-hidden'>
                 <div className='flex flex-col mr-2'>
-                    <div className='flex flex-row bg-zinc-300 rounded-sm px-1'>
-                        <img src={UFO}/>
-                        <p className='font-bold text-black whitespace-nowrap overflow-hidden ml-1'>{open && 'MAKE CONTACT'}</p>
+                    <div className='flex flex-row bg-zinc-100 rounded-sm px-1 items-center'>
+                        <img src={UFO} className='h-6'/>
+                        <p className='font-bold text-sm text-black whitespace-nowrap overflow-hidden ml-1'>{open && 'MAKE CONTACT'}</p>
                     </div>
 
                     <div className='flex flex-row w-full'>
@@ -106,7 +105,7 @@ function ContactHeading () {
     }
 
     return (
-        <div className='flex flex-row h-16 rounded-xs p-2 bg-white'
+        <div className='absolute z-20 -top-1 right-0 flex flex-row h-14 rounded-xs p-1 bg-white'
             onMouseLeave={() => {
                 setOpen(false)
             }}

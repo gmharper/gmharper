@@ -106,7 +106,7 @@ function NIconsBar ({ activeElement, setActiveElement }) {
             setTimer(timer+1);
         }, 200);
 
-        getId = document.elementsFromPoint(window.innerWidth/2, 200)
+        getId = document.elementsFromPoint(window.innerWidth/2, 190)
 
         if (getId && getId[1].id && !mouseOver) setActiveElement({...icons_list[getId[1].id]})
 

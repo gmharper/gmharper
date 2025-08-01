@@ -46,7 +46,7 @@ let styles = {
 }
 
 const scanner_indicator = 'items-center content-center justify-center min-w-60 w-60 h-12 bg-linear-to-r from-lime-600/60 to-lime-500/60 contrast-200 backdrop-invert drop-shadow-xl drop-shadow-green-500/40 rounded-xl border-4 border-double border-black'
-const scanner_style = 'z-50 absolute -translate-y-2 h-30 w-30 content-center bg-green-500/30 contrast-200 backdrop-invert drop-shadow-xl drop-shadow-lime-500/60 border-8 border-double border-green-700 rounded-xl pointer-events-none'
+const scanner_style = 'z-50 absolute -translate-y-1 h-30 w-30 content-center bg-green-500/30 contrast-200 backdrop-invert drop-shadow-xl drop-shadow-lime-500/60 border-8 border-double border-green-700 rounded-xl pointer-events-none'
 
 // PROJECT CARDS
 const project_cards = [
@@ -121,7 +121,7 @@ function Home () {
                     <img src={crt_effect} className='absolute scale-100 contrast-50 opacity-40'/>
                 </div>
                 :
-                <div className={'absolute flex flex-row -top-16 overflow-hidden ' +scanner_indicator} >
+                <div className={'absolute flex flex-row -top-17 overflow-hidden ' +scanner_indicator} >
                     <p style={{ color: 'white' }} className={'text-2xl font-dot_matrix content-center ' +(playAnimations && 'animate-text-pulsate')} >{activeElement ? activeElement.name : ''}</p>
                     <img src={crt_effect} className='absolute scale-100 contrast-50 opacity-40'/>
                 </div>
@@ -141,7 +141,7 @@ function Home () {
                 </div>
                 
                 <motion.div 
-                    className='flex flex-col h-160 -mr-8 bg-white/90 overflow-y-scroll overflow-x-none overscroll-contain rounded-xl overflow-hidden'
+                    className='flex flex-col -mr-8 bg-white/90 h-165 overflow-x-none overflow-y-scroll overscroll-contain rounded-xl overflow-hidden'
                     onScroll={(e) => {handleScroll(e)}}
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
@@ -212,12 +212,12 @@ function Home () {
                             
                             
                         />
-                        <FlipperCard
+                        {/* <FlipperCard
                             id={'go'} 
                             setFlipped={setProjects}  
                             front={ <GoFront flipped={projects[5].hasBeenFlipped} /> } 
                             back={ <GoBack flipped={projects[5].hasBeenFlipped} /> } 
-                        />
+                        /> */}
                         <FlipperCard 
                             id={'captchas'} 
                             setFlipped={setProjects}
