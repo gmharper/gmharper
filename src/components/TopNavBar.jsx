@@ -18,7 +18,7 @@ import { ContactHeading } from "./style"
 import crt_effect from "../assets/img/crt-effect.jpg"
 
 // STYLING
-let scanner_indicator = 'items-center content-center justify-center h-12 bg-linear-to-r from-zinc-200/80 to-white contrast-150 drop-shadow-xl drop-shadow-yellow-500/40 rounded-xl border-4 border-double border-black px-2'
+let scanner_indicator = 'items-center content-center justify-center h-12 bg-linear-to-r from-fuchsia-500/80 to-violet-400 contrast-150 drop-shadow-xl drop-shadow-violet-500/40 rounded-xl border-4 border-double border-black px-2'
 
 const NameIndicator = ({ text="", playAnimations }) => {
     let textArray = text.split("")
@@ -69,7 +69,7 @@ function TopNavBar ({ isHomepage }) {
     return (
         <div className='relative flex flex-row h-12 sm:mx-8 mt-4 rounded-xs mb-4'>
             <div className='rounded-sm bg-stone-100 shadow-md shadow-sky-200/40 p-1 mr-4'>
-                <Link to="/home" className='content-center' >
+                <Link to="/" className='content-center' >
                     <HomeIcon className='p-1 text-black h-full hover:scale-115' />
                 </Link>
             </div>

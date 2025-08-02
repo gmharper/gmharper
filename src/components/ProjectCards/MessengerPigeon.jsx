@@ -61,7 +61,7 @@ function MessengerPigeonBack ({ flipped=false }) {
                 <div className='flex flex-col gap-2'>
                     <InfoTextPanel text={back_text} styling={'flex '} hasBeenFlipped={flipped} />
 
-                    <ViewPage type='anchor' to={"messenger-pigeon.netlify.app"} />
+                    <ViewPage type='anchor' to={"messenger-pigeon.netlify.app"} text='VIEW SITE'/>
                 </div>
 
                 <div className='flex-1' />

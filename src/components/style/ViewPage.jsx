@@ -4,7 +4,7 @@ import { Link } from "react-router"
 
 import { ArrowRightCircleIcon } from "@heroicons/react/24/solid"
 
-function ViewPage ({ type, to='' }) {
+function ViewPage ({ type, to='', text }) {
     return (
         <>
             { type==='route' ?
@@ -19,7 +19,7 @@ function ViewPage ({ type, to='' }) {
                 target='_blank'
                 rel='noopener noreferrer'
                 href={to}>
-                <p className='font-bold text-black mr-2'>VIEW PAGE</p>
+                <p className='font-bold text-black mr-2'>VIEW SITE</p>
                 <ArrowRightCircleIcon className='h-6 text-black'/>
             </a> : <></>
             }

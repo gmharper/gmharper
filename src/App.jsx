@@ -34,7 +34,7 @@ function App() {
   } )
 
   useEffect(() => {
-    setPlayAnimations(JSON.parse(window.sessionStorage.getItem("playAnimations")))
+    window.sessionStorage.getItem("playAnimations") && setPlayAnimations(JSON.parse(window.sessionStorage.getItem("playAnimations")))
   }, [])
 
   useEffect(() => {
@@ -44,10 +44,11 @@ function App() {
   return (
     <div className='h-full'>
       <AppContext.Provider value={{ playAnimations, setPlayAnimations, getWindowSize }} >
-        <img src={bg} className='absolute top-0 brightness-70 contrast-120 saturate-60' />
+        <img src={bg} className='absolute top-0 brightness-80 contrast-120 saturate-100' />
         <TopNavBar isHomepage={page==='home'}/>
           <Routes>
-            <Route path={"/" || "/home"} element={<Home />} />
+            <Route path={"/"} element={<Home />} />
+            <Route path={"/home"} element={<Home />} />
             <Route path="/brewReview" element={<BrewReview />} />
             <Route path="/fantasyfantasy" element={<FantasyFantasy />} />
             <Route path="/openFL" element={<OpenFL />} />

@@ -10,6 +10,7 @@ import { AppContext } from "../../App"
 import br_video from "../../assets/video/br-video.mp4"
 import br_wireframes from "../../assets/img/br-wireframes.png"
 import br_jira from "../../assets/img/br-jira.png"
+import br_branches from "../../assets/img/br-branches.png"
 import nc_logo from "../../assets/img/nc-logo.png"
 
 // COMPONENTS
@@ -60,7 +61,7 @@ function BrewReview () {
     return (
         <div className={'relative flex flex-row items-center justify-center content-center mb-8 '}>
             { activeImage &&
-                <div className={'z-30 absolute top-3 rounded-sm outline-2 outline-zinc-200 drop-shadow-2xl drop-shadow-black/40 overflow-hidden' +(activeImage && 'backdrop-blur-lg')}>
+                <div className={'z-30 absolute top-3 min-h-200 min-w-100 rounded-sm outline-2 outline-zinc-200 drop-shadow-2xl drop-shadow-black/40 overflow-hidden' +(activeImage && 'backdrop-blur-lg')}>
                     <div className='absolute top-2 right-2 w-12 h-12 cursor-pointer bg-white outline-1 outline-zinc-300 drop-shadow-xs drop-shadow-black/30 rounded-sm p-2'
                     onClick={() => {setActiveImage(null)}}>
                         <XMarkIcon className='h-full text-black'/>
@@ -94,14 +95,16 @@ function BrewReview () {
                         <PersonCard person={group_members[4]}/>
 
                         <div className='flex-1' />
-                        <div className='flex flex-col h-20 bg-white rounded-sm p-2'>
+                        <div className='relative flex flex-col h-25 bg-white rounded-sm p-2'>
+                            <p className='bg-zinc-100 rounded-sm outline-1 outline-zinc-200 font-pixel_operator text-black text-sm w-65'>As part of the JavaScript software development bootcamp at northcoders</p>
                             <div className='flex-1' />
-
+                            <img src={nc_logo} className='absolute h-16 bottom-2 right-2' />
                             <a href='https://www.northcoders.com/blog/brew-review/' 
                                 target='_blank'
                                 rel='noopener noreferrer'
-                                className='w-50 h-8 flex bg-sky-300 outline-1 outline-white rounded-sm px-2 items-center animate-grow'>
-                                <p className='text-black '>See the full project</p>
+                                className='w-60 h-10 flex bg-sky-300 outline-1 outline-white rounded-sm px-2 items-center'>
+                                <p className='z-15 text-black text-lg'>See the full project</p>
+                                
                                 <div className='flex-1'/>
                                 <ArrowRightCircleIcon className='text-black h-6'/>
                             </a>
@@ -122,28 +125,28 @@ function BrewReview () {
                         })}
                     </div>
 
-                    <div className='flex flex-col gap-1 rounded-xl'>
-                        <BoxLabel text={'GITHUB BRANCHING'} width="min-w-65"/>
+                    <div className='flex flex-col gap-1 rounded-xl min-w-65'>
+                        <BoxLabel text={'BRANCHES & COMMIT HISTORY'} width="min-w-65"/>
 
                         <div className='relative flex z-10 rounded-xl items-center justify-center cursor-pointer'
                                 onMouseEnter={() => {setShowGithubArrows(true)}}
                                 onMouseLeave={() => {setShowGithubArrows(false)}}
-                                onClick={() => {setActiveImage(br_jira)}}
+                                onClick={() => {setActiveImage(br_branches)}}
                         >
-                            <img src={br_jira} className='md:h-60 lg:h-80 rounded-sm hover:blur-[1px]' />
-                            { showGithubArrows && <ArrowsPointingOutIcon className='z-20 absolute w-32 h-32 text-black/40 pointer-events-none' /> }
+                            <img src={br_branches} className='md:h-60 lg:h-80 rounded-sm hover:blur-[1px]' />
+                            { showGithubArrows && <ArrowsPointingOutIcon className='z-20 absolute w-32 h-32 text-white/40 pointer-events-none' /> }
                         </div>
                     </div>
 
-                    <div className='flex flex-col gap-1 rounded-xl'>
-                        <BoxLabel text={'USING JIRA FOR TICKETING'} width="min-w-65"/>
+                    <div className='flex flex-col gap-1 rounded-xl min-w-65'>
+                        <BoxLabel text={'JIRA FOR TICKETING & WORKFLOW'} width="min-w-65"/>
 
                         <div className='z-10 relative flex rounded-xl items-center justify-center cursor-pointer'
                                 onMouseEnter={() => {setShowJiraArrows(true)}}
                                 onMouseLeave={() => {setShowJiraArrows(false)}}
                                 onClick={() => {setActiveImage(br_jira)}}
                         >
-                            <img src={br_jira} className='md:h-60 lg:h-80 rounded-sm hover:blur-[1px]'/>
+                            <img src={br_jira} className='md:h-60 lg:h-80 rounded-sm hover:blur-[1px]' loading=""/>
                             { showJiraArrows && <ArrowsPointingOutIcon className='z-20 absolute w-32 h-32 text-black/40 pointer-events-none' /> }
                         </div>
                     </div>

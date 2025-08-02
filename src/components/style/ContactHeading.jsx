@@ -109,8 +109,7 @@ function ContactHeading () {
             onMouseLeave={() => {
                 setOpen(false)
             }}
-        >
-            
+        >  
             <>
                 <div className='h-full items-center content-center border-r-1 border-zinc-500 mr-2'
                     onMouseEnter={() => {
@@ -130,7 +129,7 @@ function ContactHeading () {
                 { open ? 
                     <Contacts />
                     :
-                    <div className='z-40 absolute w-3 h-3 bg-sky-400 -top-3 -left-11.5 rounded-full' />
+                    <div className='z-40 absolute w-3 h-3 bg-sky-400 -top-2 -left-10.5 rounded-full' />
                 }
                 </motion.div>
             </> 
