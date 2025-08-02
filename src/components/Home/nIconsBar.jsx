@@ -27,7 +27,7 @@ const tooltip_style = {
     color: "#222", 
     borderRadius: '2px' }
 
-const icon_styling = 'min-w-20 w-28 min-h-20 h-28 hover:scale-110 drop-shadow-sm drop-shadow-sky-500'
+const icon_styling = 'min-w-20 w-28 min-h-20 h-24 hover:scale-110 drop-shadow-sm drop-shadow-sky-500'
 const parent_container = 'z-20 relative flex flex-row w-screen mb-4 bg-black/0 whitespace-nowrap'
 
 const fade_container = 'z-20 w-screen h-28 bg-linear-to-l from-midnight/0 via-midnight/0 to-midnight/0 pointer-events-none'
@@ -106,7 +106,7 @@ function NIconsBar ({ activeElement, setActiveElement }) {
             setTimer(timer+1);
         }, 200);
 
-        getId = document.elementsFromPoint(window.innerWidth/2, 190)
+        getId = document.elementsFromPoint(window.innerWidth/2, 170)
 
         if (getId && getId[1].id && !mouseOver) setActiveElement({...icons_list[getId[1].id]})
 
@@ -116,7 +116,7 @@ function NIconsBar ({ activeElement, setActiveElement }) {
 
 
     return (
-        <div className='w-screen h-28 overflow-hidden shadow-lg items-center justify-center'>
+        <div className='w-screen h-24 overflow-hidden shadow-lg items-center justify-center'>
             <div className={parent_container}>
                 
                 <div className={scroll_container}>

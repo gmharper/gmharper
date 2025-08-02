@@ -13,11 +13,16 @@ import br_jira from "../../assets/img/br-jira.png"
 import br_branches from "../../assets/img/br-branches.png"
 import nc_logo from "../../assets/img/nc-logo.png"
 
+import JavascriptIcon, { AndroidIcon, ExpoIcon, FirebaseIcon, GithubIcon, ReactIcon } from "../../assets/icons"
+
 // COMPONENTS
 import PersonCard from "../BrewReview/PersonCard"
-import { BoxLabel } from "../style/index"
+import { BoxLabel, IconsPanel } from "../style/index"
 
 import { ArrowRightCircleIcon, ChevronRightIcon, ArrowsPointingOutIcon, XMarkIcon } from "@heroicons/react/24/solid"
+
+// STYLING
+let icon_styling = 'flex w-full h-12 '
 
 const group_members = [
     {
@@ -47,6 +52,25 @@ const group_members = [
     }
 ]
 
+const icons = [
+    { id: 'javascript', name: 'JAVASCRIPT', component: <JavascriptIcon className={icon_styling}/> },
+    { id: 'react', name: 'REACT NATIVE', component: <ReactIcon className={icon_styling}/> },
+    { id: 'expo', name: 'EXPO GO', component: <ExpoIcon className={icon_styling}/> },
+    { id: 'firebase', name: 'FIREBASE', component: <FirebaseIcon className={icon_styling}/> },
+    { id: 'android', name: 'ANDROID STUDIO', component: <AndroidIcon className={icon_styling}/> },
+]
+
+const icons_2 = [
+    { id: 'github', name: 'GITHUB REPO', component: 
+        <a 
+            target='_blank'
+            rel='noopener noreferrer'
+            href={'https://github.com/gmharper/BrewReview'} className=''>
+            <GithubIcon className={icon_styling}/>
+        </a> 
+    }
+]
+
 function BrewReview () {
     const { getWindowSize } = useContext(AppContext)
 
@@ -59,7 +83,7 @@ function BrewReview () {
     let wireframesArray = "WIREFRAMES".split("")
 
     return (
-        <div className={'relative flex flex-row items-center justify-center content-center mb-8 '}>
+        <div className={'relative flex flex-row items-center justify-center content-center mb-8'}>
             { activeImage &&
                 <div className={'z-30 absolute top-3 min-h-200 min-w-100 rounded-sm outline-2 outline-zinc-200 drop-shadow-2xl drop-shadow-black/40 overflow-hidden' +(activeImage && 'backdrop-blur-lg')}>
                     <div className='absolute top-2 right-2 w-12 h-12 cursor-pointer bg-white outline-1 outline-zinc-300 drop-shadow-xs drop-shadow-black/30 rounded-sm p-2'
@@ -76,17 +100,12 @@ function BrewReview () {
             </div> : <></>
             } */}
 
-            <div className='flex px-8 flex-col gap-4 items-center justify-center content-center'>
+            <div className='flex px-8 w-360 flex-col gap-4 items-center justify-center content-center bg-zinc-900/90 p-4'>
                 <div className='flex flex-row gap-4'>
-                    <div className='flex flex-col gap-1'>
-                        <div className='rounded-sm overflow-hidden min-2-200'>
-                            <video src={br_video} className='scale-180 h-100' controls={true} autoPlay={true} loop={true} muted={true} />
-                        </div>
-                        <BoxLabel text={'DEMO VIDEO'} />
-                    </div>
-
-
                     <div className='z-10 flex flex-col gap-2 bg-zinc-800 rounded-sm p-2'>
+                        <div className='flex'>
+                            <BoxLabel text='BREW REVIEW' colour='bg-lime-400' width="w-45"/>
+                        </div>
                         <h3 className='bg-zinc-900 font-pixel_operator rounded-sm '>Made in Collaboration with:</h3>
                         <PersonCard person={group_members[0]}/>
                         <PersonCard person={group_members[1]}/>
@@ -110,6 +129,16 @@ function BrewReview () {
                             </a>
                         </div>
                     </div>
+
+                    <div className='flex flex-col gap-1'>
+                        <div className='relative rounded-sm overflow-hidden min-2-200'>
+                            <video src={br_video} className='scale-180 h-100' controls={true} autoPlay={true} loop={true} muted={true} />
+                            
+                        </div>
+                        <BoxLabel text={'DEMO VIDEO'} />
+                    </div>
+
+
 
                 </div>
 
@@ -150,6 +179,8 @@ function BrewReview () {
                             { showJiraArrows && <ArrowsPointingOutIcon className='z-20 absolute w-32 h-32 text-black/40 pointer-events-none' /> }
                         </div>
                     </div>
+
+                    <IconsPanel icons_1={[]} icons_2={icons}/>
                 </div>
             </div>
         </div>
