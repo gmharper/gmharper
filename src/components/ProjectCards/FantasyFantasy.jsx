@@ -30,7 +30,7 @@ function FantasyFantasyFront () {
         face={'front'}
         children={
             <div className='w-full h-full bg-stone-100'>
-                <div className='absolute bottom-5 right-5'>
+                <div className='z-20 absolute bottom-5 right-5'>
                     <BoxLabel colour='bg-lime-400' text={'FANTASY FANTASY'} />
                 </div>
             </div>
@@ -54,7 +54,7 @@ function FantasyFantasyBack ({ flipped=false }) {
 
                 <IconsPanel icons_1={icons_1} icons_2={icons_2}/>
 
-                <div className='absolute bottom-5 left-5'>
+                <div className='z-20 absolute bottom-5 left-5'>
                     <BoxLabel colour='bg-lime-400' text={'FANTASY FANTASY'} />
                 </div>
             </div>

@@ -42,7 +42,7 @@ function MessengerPigeonFront () {
                     <img src={Dove} className='flex w-full h-full text-white invert'/>
 
                 </div>
-                <div className='absolute bottom-5 right-5'>
+                <div className='z-20 absolute bottom-5 right-5'>
                     <BoxLabel colour='bg-lime-400' text={'MESSENGER PIGEON'} />
                 </div>
             </div>
@@ -68,7 +68,7 @@ function MessengerPigeonBack ({ flipped=false }) {
 
                 <IconsPanel icons_1={icons_1} icons_2={icons_2}/>
 
-                <div className='absolute bottom-5 left-5'>
+                <div className='z-20 absolute bottom-5 left-5'>
                     <BoxLabel colour='bg-lime-400' text={'MESSENGER PIGEON'} />
                 </div>
             </div>

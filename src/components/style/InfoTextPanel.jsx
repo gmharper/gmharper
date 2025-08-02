@@ -10,7 +10,7 @@ function InfoTextPanel ({ text, styling='', hasBeenFlipped=false }) {
     let isInView = useInView(ref)
 
     return (
-        <div className={'flex w-60 bg-zinc-900 outline-1 outline-zinc-700 rounded-sm p-3 ' +(styling ? styling : '')}>
+        <div className={'flex w-60 bg-zinc-900 outline-1 outline-zinc-700 rounded-sm p-3 overflow-hidden ' +(styling ? styling : '')}>
             <motion.p
                 ref={ref}
                 style={{ color: 'white' }}

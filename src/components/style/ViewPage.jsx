@@ -9,13 +9,13 @@ function ViewPage ({ type, to='', text }) {
         <>
             { type==='route' ?
             <Link 
-                className='flex flex-row h-8 rounded-sm bg-sky-400 outline-1 outline-blue-200 content-center items-center justify-center shadow-sm shadow-sky-300' 
+                className='flex flex-row h-8 rounded-sm bg-sky-300 outline-1 outline-blue-200 content-center items-center justify-center shadow-sm shadow-sky-300 hover:bg-white ' 
                 to={to}>
                 <p className='font-bold text-black mr-2'>VIEW PAGE</p>
                 <ArrowRightCircleIcon className='h-6 text-black'/>
             </Link> : type==='anchor' ?
             <a
-                className='flex flex-row h-8 rounded-sm bg-sky-400 outline-1 outline-blue-200 content-center items-center justify-center shadow-sm shadow-sky-300' 
+                className='flex flex-row h-8 rounded-sm bg-sky-300 outline-1 outline-blue-200 content-center items-center justify-center shadow-sm shadow-sky-300 hover:bg-white ' 
                 target='_blank'
                 rel='noopener noreferrer'
                 href={to}>

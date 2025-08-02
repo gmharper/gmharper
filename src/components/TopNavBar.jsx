@@ -30,7 +30,7 @@ const NameIndicator = ({ text="", playAnimations }) => {
         <div className='flex flex-row flex-shrink drop-shadow-sm drop-shadow-white/60'>
             <motion.p
                 ref={ref}
-                style={{ color: 'black' }}
+                style={{ color: 'white' }}
                 className='text-left font-pixel_operator h-full flex-shrink justify-left content-left'
                 variants={{
                     visible: { opacity: 1 }, hidden: { opacity: 0 }
@@ -74,9 +74,9 @@ function TopNavBar ({ isHomepage }) {
                 </Link>
             </div>
 
-            <div className={'flex flex-row overflow-hidden ' +scanner_indicator} >
-                <NameIndicator text={getWindowSize()[0] <=768 ? "GEORGE HARPER" : "GEORGE HARPER | FULL-STACK DEVELOPER "} playAnimations={playAnimations}/>
-                <img src={crt_effect} className='absolute scale-100 contrast-50 opacity-30'/>
+            <div className={'flex flex-row overflow-hidden crt ' +scanner_indicator} >
+                <NameIndicator text={getWindowSize()[0] <1024 ? "GEORGE HARPER" : "GEORGE HARPER | FULL-STACK DEVELOPER "} playAnimations={playAnimations}/>
+                {/* <img src={crt_effect} className='absolute scale-100 contrast-50 opacity-30'/> */}
             </div>
 
             <div className='flex-1' />

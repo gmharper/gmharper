@@ -51,7 +51,7 @@ function BrewReviewFront ({ flipped=false }) {
         children={
             <div className='w-full h-full'>
                 <video id={"br_vid"} src={br_video} className='scale-180 h-100' autoPlay={playAnimations} loop={true} muted={true} controls={false} />
-                <div className='absolute bottom-5 right-5'>
+                <div className='z-20 absolute bottom-5 right-5'>
                     <BoxLabel colour='bg-lime-400' text={'BREW REVIEW'} />
                 </div>
             </div> 
@@ -80,7 +80,7 @@ function BrewReviewBack ({ flipped=false }) {
                 <IconsPanel icons_1={icons_1} icons_2={icons_2} />
                 <p className='text-xs text-white absolute top-29 right-17 pointer-events-none'>NATIVE</p>
 
-                <div className='absolute bottom-5 left-5'>
+                <div className='z-20 absolute bottom-5 left-5'>
                     <BoxLabel colour='bg-lime-400' text={'BREW REVIEW'} />
                 </div>
             </div> 

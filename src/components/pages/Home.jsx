@@ -99,7 +99,7 @@ function Home () {
 
             <NIconsBar activeElement={activeElement} setActiveElement={setActiveElement} />
             <div className={'overflow-hidden ' +scanner_style} >
-                <img src={crt_effect} className='absolute scale-300 contrast-50 opacity-50'/>
+                <img src={crt_effect} className='absolute scale-330 contrast-50 opacity-50'/>
             </div>
 
             <div className='flex flex-row w-screen px-6 xl:px-16 mt-2 invisible sm:visible'>
@@ -146,7 +146,7 @@ function Home () {
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
                     transition={{ duration: 0.05 }}
-                    >
+                >
                     
                     <div className='z-30 flex flex-row my-4 px-4'>
                         <div className='flex-1' />
@@ -274,9 +274,7 @@ function Home () {
                     content={playAnimations ? "STOP ANIMATIONS" : "PLAY ANIMATIONS"}
                     place={'right'}
                 />
-            </div>
-
-            
+            </div> 
         </motion.div>
     )
 }

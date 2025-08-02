@@ -6,8 +6,8 @@ import linkedIn_logo from '../../assets/img/linkedIn-logo.png'
 
 function PersonCard ({ person }) {
     return (
-        <div className='flex flex-row bg-stone-100 p-1 rounded-sm h-10 w-65 lg:w-90'>
-            <p className='text-lg text-left font-bold font-pixel_operator text-black content-center px-2'>{person.name}</p>
+        <div className='flex flex-row bg-stone-100 p-1 rounded-sm h-10 w-90'>
+            <p className='text-xl text-left font-bold font-pixel_operator text-black content-center px-2'>{person.name}</p>
 
             <div className='flex-1' />
 
