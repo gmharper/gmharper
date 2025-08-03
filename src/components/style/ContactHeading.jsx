@@ -74,7 +74,7 @@ function ContactHeading () {
         return (
             <div className='flex flex-row overflow-hidden'>
                 <div className='flex flex-col mr-2'>
-                    <div className='flex flex-row bg-zinc-100 rounded-sm px-1 items-center'>
+                    <div className='flex flex-row bg-zinc-100 rounded-sm px-1 items-center animate-grow'>
                         <img src={UFO} className='h-6'/>
                         <p className='font-bold text-sm text-black whitespace-nowrap overflow-hidden ml-1'>{open && 'MAKE CONTACT'}</p>
                     </div>

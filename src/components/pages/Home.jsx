@@ -102,7 +102,7 @@ function Home () {
                 <img src={crt_effect} className='absolute scale-330 contrast-50 opacity-50'/>
             </div>
 
-            <div className='flex flex-row w-screen px-6 xl:px-16 mt-2 invisible sm:visible'>
+            <div className='flex flex-row w-screen px-6 xl:px-16 my-3 invisible sm:visible'>
                 <UnfurlHeading 
                     icon={<ArrowTrendingUpIcon 
                         className='size-6 text-black'/>} 
@@ -128,7 +128,7 @@ function Home () {
             }
 
             <div id={'home_projects_heading'} className='flex flex-col justify-center items-center'>
-                <div className='flex flex-row my-2'>
+                {/* <div className='flex flex-row mb-2'>
                     <UnfurlHeading 
                         icon={<ArrowTrendingDownIcon 
                             className='size-6 text-black'/>} 
@@ -138,10 +138,10 @@ function Home () {
                         width_open={500}/>
 
                     <div className='flex-1'/>
-                </div>
+                </div> */}
                 
                 <motion.div 
-                    className='flex flex-col -mr-8 bg-white/90 h-160 overflow-x-none overflow-y-scroll overscroll-contain rounded-xl overflow-hidden'
+                    className='flex flex-col -mr-8 bg-white/90 h-165 overflow-x-none overflow-y-scroll overscroll-contain rounded-xl overflow-hidden'
                     onScroll={(e) => {handleScroll(e)}}
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}

@@ -67,7 +67,7 @@ function TopNavBar ({ isHomepage }) {
     const ref = useRef(null)
 
     return (
-        <div className='relative flex flex-row h-12 sm:mx-8 mt-4 rounded-xs mb-4'>
+        <div className='relative flex flex-row h-12 mx-2 sm:mx-8 mt-4 rounded-xs mb-4'>
             <div className='rounded-sm bg-stone-100 shadow-md shadow-sky-200/40 p-1 mr-4'>
                 <Link to="/" className='content-center' >
                     <HomeIcon className='p-1 text-black h-full hover:scale-115' />
@@ -75,7 +75,7 @@ function TopNavBar ({ isHomepage }) {
             </div>
 
             <div className={'flex flex-row overflow-hidden crt ' +scanner_indicator} >
-                <NameIndicator text={getWindowSize()[0] <1024 ? "GEORGE HARPER" : "GEORGE HARPER | FULL-STACK DEVELOPER "} playAnimations={playAnimations}/>
+                <NameIndicator text={getWindowSize()[0] <1024 ? "GEORGE HARPER | DEV" : "GEORGE HARPER | FULL-STACK DEVELOPER "} playAnimations={playAnimations}/>
                 {/* <img src={crt_effect} className='absolute scale-100 contrast-50 opacity-30'/> */}
             </div>
 
