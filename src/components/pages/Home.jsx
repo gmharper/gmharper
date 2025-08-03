@@ -116,29 +116,19 @@ function Home () {
             </div>
 
             { getWindowSize()[0] < 1536 ?
-                <div className={'absolute flex flex-row top-31 sm:right-5 overflow-hidden ' +scanner_indicator} >
+                <div className={'absolute flex flex-row top-26 sm:right-5 overflow-hidden ' +scanner_indicator} >
                     <p style={{ color: 'white' }} className={'text-2xl font-dot_matrix content-center ' +(playAnimations && 'animate-text-pulsate')}>{activeElement ? activeElement.name : ''}</p>
                     <img src={crt_effect} className='absolute scale-100 contrast-50 opacity-40'/>
                 </div>
                 :
-                <div className={'absolute flex flex-row -top-17 overflow-hidden ' +scanner_indicator} >
+                <div className={'absolute flex flex-row -top-15 overflow-hidden ' +scanner_indicator} >
                     <p style={{ color: 'white' }} className={'text-2xl font-dot_matrix content-center ' +(playAnimations && 'animate-text-pulsate')} >{activeElement ? activeElement.name : ''}</p>
                     <img src={crt_effect} className='absolute scale-100 contrast-50 opacity-40'/>
                 </div>
             }
 
             <div id={'home_projects_heading'} className='flex flex-col justify-center items-center'>
-                {/* <div className='flex flex-row mb-2'>
-                    <UnfurlHeading 
-                        icon={<ArrowTrendingDownIcon 
-                            className='size-6 text-black'/>} 
-                        text_closed={'MY PROJECTS'} 
-                        text_open={'A LIST OF PROJECTS THAT I AM CURRENTLY WORKING ON'} 
-                        width_closed={160} 
-                        width_open={500}/>
-
-                    <div className='flex-1'/>
-                </div> */}
+                
                 
                 <motion.div 
                     className='flex flex-col -mr-8 bg-white/90 h-165 overflow-x-none overflow-y-scroll overscroll-contain rounded-xl overflow-hidden'
@@ -149,6 +139,18 @@ function Home () {
                 >
                     
                     <div className='z-30 flex flex-row my-4 px-4'>
+                        <div className='flex flex-row mb-2'>
+                            <UnfurlHeading 
+                                icon={<ArrowTrendingDownIcon 
+                                    className='size-6 text-black'/>} 
+                                text_closed={'MY PROJECTS'} 
+                                text_open={'A LIST OF PROJECTS THAT I AM CURRENTLY WORKING ON'} 
+                                width_closed={160} 
+                                width_open={500}/>
+
+                            <div className='flex-1'/>
+                        </div>
+
                         <div className='flex-1' />
                         <motion.div className='flex flex-row w-32 h-8 bg-yellow-300 rounded-md items-center content-center px-3 animate-grow'
                             initial={{ width: 150}}
