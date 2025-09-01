@@ -30,7 +30,7 @@ function XPointerFront () {
         <ProjectCard children={
             <div className='w-full h-full bg-stone-100'>
                 <div className='z-20 absolute bottom-5 right-5'>
-                    <BoxLabel colour='bg-lime-400' text={'xPointer'} />
+                    <BoxLabel colour='bg-lime-300 saturate-400 ' text={'xPointer'} />
                 </div>
             </div>
         } />
@@ -55,7 +55,7 @@ function XPointerBack ({ flipped=false }) {
                 <IconsPanel icons_1={icons_1} icons_2={icons_2}/>
 
                 <div className='z-20 absolute bottom-5 left-5'>
-                    <BoxLabel colour='bg-lime-400' text={'xPointer'} />
+                    <BoxLabel colour='bg-lime-300 saturate-400 ' text={'xPointer'} />
                 </div>
             </div>
         } />

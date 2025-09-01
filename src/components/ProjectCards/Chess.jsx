@@ -42,7 +42,7 @@ function ChessFront () {
             <div className='w-full h-full bg-stone-100 overflow-hidden'>
                 <img src={modechess_img} className={'scale-260 rotate-1 translate-y-20 translate-x-10 ' + (playAnimations && 'animate-chess-move')}/>
                 <div className='z-20 absolute bottom-5 right-5'>
-                    <BoxLabel colour='bg-lime-400' text={'MODE:CHESS'} />
+                    <BoxLabel colour='bg-lime-300 saturate-400 ' text={'MODE:CHESS'} />
                 </div>
             </div>
         } />
@@ -69,7 +69,7 @@ function ChessBack ({ flipped=false }) {
                 <IconsPanel icons_1={icons_1} icons_2={icons_2}/>
 
                 <div className='z-20 absolute bottom-5 left-5'>
-                    <BoxLabel colour='bg-lime-400' text={'MODE:CHESS'} />
+                    <BoxLabel colour='bg-lime-300 saturate-400 ' text={'MODE:CHESS'} />
                 </div>
             </div>
         } />

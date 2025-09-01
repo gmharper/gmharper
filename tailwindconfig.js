@@ -4,8 +4,8 @@ module.exports = {
   theme: {
     extend: {
         fontFamily: {
-            dot_matrix: ["dot_matrix"],
-            pixel_operator: ["pixel_operator"]
+          dot_matrix: ["dot_matrix"],
+          pixel_operator: ["pixel_operator"]
     }
     },
   },

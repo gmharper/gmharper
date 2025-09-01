@@ -45,8 +45,8 @@ let styles = {
     },
 }
 
-const scanner_indicator = 'items-center content-center justify-center min-w-60 w-60 h-12 bg-linear-to-r from-lime-600/60 to-lime-500/60 contrast-200 backdrop-invert drop-shadow-xl drop-shadow-green-500/40 rounded-xl border-4 border-double border-black'
-const scanner_style = 'z-50 absolute -translate-y-2 h-28 w-28 content-center bg-green-500/30 contrast-200 backdrop-invert drop-shadow-xl drop-shadow-lime-500/60 border-8 border-double border-green-700 rounded-xl pointer-events-none'
+const scanner_indicator = 'items-center content-center justify-center min-w-60 w-60 h-12 bg-linear-to-r from-lime-600/90 to-lime-500/90 contrast-200 saturate-300 backdrop-invert drop-shadow-xl drop-shadow-green-500/40 rounded-xl border-4 border-double border-black'
+const scanner_style = 'z-50 absolute -translate-y-2 h-28 w-28 content-center bg-green-500/30 contrast-200 saturate-300 backdrop-invert drop-shadow-xl drop-shadow-lime-500/60 border-8 border-double border-green-700 rounded-xl pointer-events-none'
 
 // PROJECT CARDS
 const project_cards = [
@@ -152,7 +152,7 @@ function Home () {
                         </div>
 
                         <div className='flex-1' />
-                        <motion.div className='flex flex-row w-32 h-8 bg-yellow-300 rounded-md items-center content-center px-3 animate-grow'
+                        <motion.div className='flex flex-row w-32 h-8 bg-yellow-200 saturate-300 rounded-md items-center content-center px-3 animate-grow'
                             initial={{ width: 150}}
                             animate={{ width: warningNoteOpen? 900 : 150}}
                             transition={{ duration: 0.1 }}
@@ -182,44 +182,49 @@ function Home () {
                             front={ <BrewReviewFront flipped={projects[0].hasBeenFlipped}/> }
                             back={ <BrewReviewBack flipped={projects[0].hasBeenFlipped} /> } 
                         />
+
                         <FlipperCard
                             id={'messenger_pigeon'}
                             setFlipped={setProjects} 
                             front={ <MessengerPigeonFront flipped={projects[1].hasBeenFlipped} /> } 
                             back={ <MessengerPigeonBack flipped={projects[1].hasBeenFlipped} /> } 
                         />
+
                         <FlipperCard
                             id={'chess'}
                             setFlipped={setProjects}  
                             front={ <ChessFront flipped={projects[2].hasBeenFlipped} /> } 
                             back={ <ChessBack flipped={projects[2].hasBeenFlipped} /> } 
                         />
+
                         <FlipperCard
                             id={'xPointer'}
                             setFlipped={setProjects}  
                             front={ <XPointerFront flipped={projects[3].hasBeenFlipped} /> } 
                             back={ <XPointerBack flipped={projects[3].hasBeenFlipped} /> } 
                         />
+
                         <FlipperCard
                             id={'openFL'}
                             setFlipped={setProjects}  
                             front={ <OpenFLFront flipped={projects[4].hasBeenFlipped} /> } 
                             back={ <OpenFLBack flipped={projects[4].hasBeenFlipped} /> } 
                         />
-                        <FlipperCard
+
+                        {/* <FlipperCard
                             id={'fantasy_fantasy'}
                             setFlipped={setProjects}  
                             front={ <FantasyFantasyFront flipped={projects[6].hasBeenFlipped} /> } 
                             back={ <FantasyFantasyBack flipped={projects[6].hasBeenFlipped} /> } 
-                            
-                            
-                        />
+                        /> */}
+
                         {/* <FlipperCard
                             id={'go'} 
                             setFlipped={setProjects}  
                             front={ <GoFront flipped={projects[5].hasBeenFlipped} /> } 
                             back={ <GoBack flipped={projects[5].hasBeenFlipped} /> } 
                         /> */}
+                        
                         <FlipperCard 
                             id={'captchas'} 
                             setFlipped={setProjects}

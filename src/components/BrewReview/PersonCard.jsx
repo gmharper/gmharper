@@ -1,12 +1,19 @@
+" use client"
+
 // IMPORTS
 import { Link } from 'react-router'
+import { motion } from 'framer-motion'
 
 import github_logo from '../../assets/img/github-mark.svg'
 import linkedIn_logo from '../../assets/img/linkedIn-logo.png'
 
-function PersonCard ({ person }) {
+function PersonCard ({ person, delay=0.5 }) {
     return (
-        <div className='flex flex-row bg-stone-100 p-1 rounded-sm h-10 w-90'>
+        <motion.div className='flex flex-row bg-white p-1 h-10 w-90'
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, delay: delay }}
+        >
             <p className='text-xl text-left font-bold font-pixel_operator text-black content-center px-2'>{person.name}</p>
 
             <div className='flex-1' />
@@ -34,7 +41,7 @@ function PersonCard ({ person }) {
                     </div>
                 </a>
             </div>
-        </div>    
+        </motion.div>    
     )
     
 }

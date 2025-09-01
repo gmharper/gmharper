@@ -43,7 +43,7 @@ function MessengerPigeonFront () {
 
                 </div>
                 <div className='z-20 absolute bottom-5 right-5'>
-                    <BoxLabel colour='bg-lime-400' text={'MESSENGER PIGEON'} />
+                    <BoxLabel colour='bg-lime-300 saturate-400 ' text={'MESSENGER PIGEON'} />
                 </div>
             </div>
         } />
@@ -61,7 +61,8 @@ function MessengerPigeonBack ({ flipped=false }) {
                 <div className='flex flex-col gap-2'>
                     <InfoTextPanel text={back_text} styling={'flex '} hasBeenFlipped={flipped} />
 
-                    <ViewPage type='anchor' to={"messenger-pigeon.netlify.app"} text='VIEW SITE'/>
+                    <ViewPage type='route' to={"/messengerpigeon"} text='VIEW PAGE'/>
+                    <ViewPage type='anchor' to={"https://messenger-pigeon.netlify.app/"} text='VIEW SITE'/>
                 </div>
 
                 <div className='flex-1' />
@@ -69,7 +70,7 @@ function MessengerPigeonBack ({ flipped=false }) {
                 <IconsPanel icons_1={icons_1} icons_2={icons_2}/>
 
                 <div className='z-20 absolute bottom-5 left-5'>
-                    <BoxLabel colour='bg-lime-400' text={'MESSENGER PIGEON'} />
+                    <BoxLabel colour='bg-lime-300 saturate-400 ' text={'MESSENGER PIGEON'} />
                 </div>
             </div>
         } />

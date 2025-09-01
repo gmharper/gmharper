@@ -2,7 +2,7 @@ import { Tooltip as ReactTooltip } from "react-tooltip"
 import { Link } from "react-router"
 
 const tooltip_style = {
-    backgroundColor: 'white',
+    backgroundColor: 'lime',
     color: 'black',
     font: 'bold'
 }

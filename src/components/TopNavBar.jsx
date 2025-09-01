@@ -18,7 +18,7 @@ import { ContactHeading } from "./style"
 import crt_effect from "../assets/img/crt-effect.jpg"
 
 // STYLING
-let scanner_indicator = 'items-center content-center justify-center h-12 bg-linear-to-r from-fuchsia-500/80 to-violet-400 contrast-150 drop-shadow-xl drop-shadow-violet-500/40 rounded-xl border-4 border-double border-black px-2'
+let scanner_indicator = 'items-center content-center justify-center h-12 bg-linear-to-r from-fuchsia-500/80 to-violet-400 contrast-150 saturate-300 drop-shadow-xl drop-shadow-violet-500/40 rounded-xl border-4 border-double border-black px-2'
 
 const NameIndicator = ({ text="", playAnimations }) => {
     let textArray = text.split("")

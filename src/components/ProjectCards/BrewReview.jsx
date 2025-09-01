@@ -52,7 +52,7 @@ function BrewReviewFront ({ flipped=false }) {
             <div className='w-full h-full'>
                 <video id={"br_vid"} src={br_video} className='scale-180 h-100' autoPlay={playAnimations} loop={true} muted={true} controls={false} />
                 <div className='z-20 absolute bottom-5 right-5'>
-                    <BoxLabel colour='bg-lime-400' text={'BREW REVIEW'} />
+                    <BoxLabel colour='bg-lime-300 saturate-400 ' text_colour='text-black ' text={'BREW REVIEW'} />
                 </div>
             </div> 
         } />
@@ -81,7 +81,7 @@ function BrewReviewBack ({ flipped=false }) {
                 <p className='text-xs text-white absolute top-29 right-17 pointer-events-none'>NATIVE</p>
 
                 <div className='z-20 absolute bottom-5 left-5'>
-                    <BoxLabel colour='bg-lime-400' text={'BREW REVIEW'} />
+                    <BoxLabel colour='bg-lime-300 saturate-400 ' text_colour='text-black ' text={'BREW REVIEW'} />
                 </div>
             </div> 
         } />

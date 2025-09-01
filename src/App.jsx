@@ -6,7 +6,7 @@ import './App.css'
 import TopNavBar from './components/TopNavBar'
 import BotNavBar from './components/BotNavBar';
 
-import { Home, BrewReview, FantasyFantasy, OpenFL } from './components/pages/index';
+import { Home, BrewReview, FantasyFantasy, OpenFL, MessengerPigeon } from './components/pages/index';
 
 import bg from "./assets/img/bg.png"
 
@@ -49,9 +49,10 @@ function App() {
           <Routes>
             <Route path={"/"} element={<Home />} />
             <Route path={"/home"} element={<Home />} />
-            <Route path="/brewReview" element={<BrewReview />} />
-            <Route path="/fantasyfantasy" element={<FantasyFantasy />} />
-            <Route path="/openFL" element={<OpenFL />} />
+            <Route path={"/brewReview"} element={<BrewReview />} />
+            <Route path={"/messengerpigeon"} element={<MessengerPigeon />} />
+            <Route path={"/fantasyfantasy"} element={<FantasyFantasy />} />
+            <Route path={"/openFL"} element={<OpenFL />} />
           </Routes>
       </AppContext.Provider >
     </div>

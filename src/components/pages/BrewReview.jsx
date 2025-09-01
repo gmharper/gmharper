@@ -17,9 +17,12 @@ import JavascriptIcon, { AndroidIcon, ExpoIcon, FirebaseIcon, GithubIcon, ReactI
 
 // COMPONENTS
 import PersonCard from "../BrewReview/PersonCard"
-import { BoxLabel, IconsPanel } from "../style/index"
+import { BoxLabel, RevealText, 
+    IconsPanel, IconsPanelHoriz
+} from "../style/index"
 
 import { ArrowRightCircleIcon, ChevronRightIcon, ArrowsPointingOutIcon, XMarkIcon } from "@heroicons/react/24/solid"
+import { Tooltip } from "react-tooltip"
 
 // STYLING
 let icon_styling = 'flex w-full h-12 '
@@ -82,6 +85,56 @@ function BrewReview () {
 
     let wireframesArray = "WIREFRAMES".split("")
 
+    const Wireframes = () => {
+        return (
+            <div className='z-10 flex flex-col w-8 h-70 bg-white rounded-sm lg:my-8 p-2 items-center content-center'>
+                <ArrowsPointingOutIcon className='w-6 h-6 text-black cursor-pointer'
+                    onClick={() => {setActiveImage(br_wireframes)}}
+                /> 
+                { wireframesArray.map((letter, index) => {
+                    return ( <p className='font-bold font-pixel_operator text-lg text-black h-6'>
+                        {`${letter}`}
+                    </p> )
+                })}
+            </div>
+
+        )
+    }
+
+    const Image1 = () => {
+        return (
+            <div className='flex flex-col gap-1 rounded-xl min-w-65'>
+                <BoxLabel text={'BRANCHES & COMMIT HISTORY'} width="min-w-65"/>
+
+                <div className='z-10 relative flex h-80 rounded-sm overflow-hidden items-center justify-center cursor-pointer crt'
+                        onMouseEnter={() => {setShowGithubArrows(true)}}
+                        onMouseLeave={() => {setShowGithubArrows(false)}}
+                        onClick={() => {setActiveImage(br_branches)}}
+                >
+                    <img src={br_branches} className='w-full h-full hover:blur-[1px]' />
+                    { showGithubArrows && <ArrowsPointingOutIcon className='z-20 absolute w-32 h-32 text-white/40 pointer-events-none' /> }
+                </div>
+            </div>
+        )
+    }
+
+    const Image2 = () => {
+        return (
+            <div className='flex flex-col gap-1 rounded-xl min-w-65'>
+                <BoxLabel text={'JIRA FOR TICKETING & WORKFLOW'} width="min-w-65"/>
+
+                <div className='z-10 relative flex h-80 rounded-sm overflow-hidden items-center justify-center cursor-pointer crt'
+                        onMouseEnter={() => {setShowJiraArrows(true)}}
+                        onMouseLeave={() => {setShowJiraArrows(false)}}
+                        onClick={() => {setActiveImage(br_jira)}}
+                >
+                    <img src={br_jira} className='w-full h-full hover:blur-[1px]' loading=""/>
+                    { showJiraArrows && <ArrowsPointingOutIcon className='z-20 absolute w-32 h-32 text-black/40 pointer-events-none' /> }
+                </div>
+            </div>
+        )
+    }
+
     return (
         <div className={'relative flex flex-row items-center justify-center content-center mb-8'}>
             { activeImage &&
@@ -100,25 +153,43 @@ function BrewReview () {
             </div> : <></>
             } */}
 
-            <div className='flex px-8 w-360 flex-col gap-4 items-center justify-center content-center bg-zinc-900/90 py-4 lg:px-4'>
+            <div className='flex px-8 w-screen flex-col gap-4 items-center justify-center content-center bg-zinc-900/50 py-4 lg:px-4'>
                 <div className='flex flex-row gap-2 lg:gap-8'>
                     <div className='relative z-10 flex flex-col gap-2 bg-zinc-800 min-w-90 rounded-sm overflow-hidden'>
                         <div className='absolute flex w-full h-full pointer-events-none crt'/>
-                        <div className='z-20 flex m-2'>
-                            <BoxLabel text='BREW REVIEW' colour='bg-lime-400' width="w-45"/>
+
+                        <div className='z-20 flex flex-row m-2'>
+                            <BoxLabel text='BREW REVIEW' colour='bg-lime-300 saturate-400 ' width="w-45"/>
+                            <div className='flex-1' />
+                            <a 
+                                target='_blank'
+                                rel='noopener noreferrer'
+                                href={'https://github.com/gmharper/BrewReview'} 
+                                className=''
+                                data-tooltip-id='github_logo'
+                                data-tooltip-content='GITHUB REPO'
+                                >
+                                <GithubIcon className={icon_styling}/>
+                            </a> 
+                            <Tooltip id='github_logo' className='font-bold' style={{ backgroundColor:'white', color:"black" }}/>
                         </div>
                         <h3 className='bg-zinc-900 font-pixel_operator rounded-sm '>Made in Collaboration with:</h3>
-                        <PersonCard person={group_members[0]}/>
-                        <PersonCard person={group_members[1]}/>
-                        <PersonCard person={group_members[2]}/>
-                        <PersonCard person={group_members[3]}/>
-                        <PersonCard person={group_members[4]}/>
+                        <PersonCard person={group_members[0]} delay={0.3}/>
+                        <PersonCard person={group_members[1]} delay={0.8}/>
+                        <PersonCard person={group_members[2]} delay={1.3}/>
+                        <PersonCard person={group_members[3]} delay={1.8}/>
+                        <PersonCard person={group_members[4]} delay={2.3}/>
 
                         <div className='flex-1' />
                         <div className='z-20 relative flex flex-col h-25 bg-white rounded-sm p-2'>
-                            <p className='bg-zinc-100 rounded-sm outline-1 outline-zinc-200 font-pixel_operator text-black text-sm w-65'>As part of the JavaScript software development bootcamp at northcoders</p>
+                            <p className='bg-zinc-100 rounded-sm outline-1 outline-zinc-200 font-pixel_operator text-black text-sm w-65'>
+                                As part of the JavaScript software development bootcamp at northcoders
+                            </p>
+
                             <div className='flex-1' />
+
                             <img src={nc_logo} className='absolute h-16 bottom-2 right-2' />
+
                             <a href='https://www.northcoders.com/blog/brew-review/' 
                                 target='_blank'
                                 rel='noopener noreferrer'
@@ -138,51 +209,25 @@ function BrewReview () {
                         </div>
                         <BoxLabel text={'DEMO VIDEO'} />
                     </div>
-
-
-
                 </div>
 
-                <div className='flex flex-row gap-4'>
-                    <div className='z-10 flex flex-col w-8 h-70 bg-white rounded-sm lg:my-8 p-2 items-center content-center'>
-                        <ArrowsPointingOutIcon className='w-6 h-6 text-black cursor-pointer'
-                            onClick={() => {setActiveImage(br_wireframes)}}
-                        /> 
-                        { wireframesArray.map((letter, index) => {
-                            return ( <p className='font-bold font-pixel_operator text-lg text-black h-6'>
-                                {`${letter}`}
-                            </p> )
-                        })}
+                { getWindowSize()[0] > 1024?
+                    <div className='flex flex-row gap-4'>
+                        <Wireframes />
+                        <Image1 />
+                        <Image2 />
+                        <IconsPanel icons_1={[]} icons_2={icons}/>
                     </div>
-
-                    <div className='flex flex-col gap-1 rounded-xl min-w-65'>
-                        <BoxLabel text={'BRANCHES & COMMIT HISTORY'} width="min-w-65"/>
-
-                        <div className='relative flex z-10 rounded-xl items-center justify-center cursor-pointer crt'
-                                onMouseEnter={() => {setShowGithubArrows(true)}}
-                                onMouseLeave={() => {setShowGithubArrows(false)}}
-                                onClick={() => {setActiveImage(br_branches)}}
-                        >
-                            <img src={br_branches} className='md:h-60 lg:h-80 rounded-sm hover:blur-[1px]' />
-                            { showGithubArrows && <ArrowsPointingOutIcon className='z-20 absolute w-32 h-32 text-white/40 pointer-events-none' /> }
+                    :
+                    <div className='flex flex-col gap-4'>
+                        <IconsPanelHoriz icons={icons.concat(icons_2)}/>
+                        <div className='flex flex-row gap-2'>
+                            <Wireframes />
+                            <Image1 />
                         </div>
-                    </div>
-
-                    <div className='flex flex-col gap-1 rounded-xl min-w-65'>
-                        <BoxLabel text={'JIRA FOR TICKETING & WORKFLOW'} width="min-w-65"/>
-
-                        <div className='z-10 relative flex rounded-xl items-center justify-center cursor-pointer crt'
-                                onMouseEnter={() => {setShowJiraArrows(true)}}
-                                onMouseLeave={() => {setShowJiraArrows(false)}}
-                                onClick={() => {setActiveImage(br_jira)}}
-                        >
-                            <img src={br_jira} className='md:h-60 lg:h-80 rounded-sm hover:blur-[1px]' loading=""/>
-                            { showJiraArrows && <ArrowsPointingOutIcon className='z-20 absolute w-32 h-32 text-black/40 pointer-events-none' /> }
-                        </div>
-                    </div>
-
-                    <IconsPanel icons_1={[]} icons_2={icons}/>
-                </div>
+                        <Image2 />
+                    </div>    
+                }
             </div>
         </div>
     )
